@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bbms.LoginController">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="600.0">
+         <left>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #369feb;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="72.0" layoutY="200.0" text="BBMS">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </left>
+         <center>
+            <Pane prefHeight="200.0" prefWidth="258.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="59.0" layoutY="68.0" text="Sign in" />
+                  <PasswordField layoutX="139.0" layoutY="200.0" promptText="Password" />
+                  <TextField layoutX="139.0" layoutY="160.0" promptText="User name" />
+                  <Button layoutX="188.0" layoutY="254.0" mnemonicParsing="false" onAction="#signIn" text="Sign in" />
+               </children>
+            </Pane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
