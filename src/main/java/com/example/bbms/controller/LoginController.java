@@ -1,5 +1,6 @@
-package com.example.bbms;
+package com.example.bbms.controller;
 
+import com.example.bbms.MainApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,26 +20,13 @@ public class LoginController {
 
     @FXML
     void signIn(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("view/Admin-view.fxml"));
+        root = FXMLLoader.load(MainApplication.class.getResource("view/Admin-view.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setTitle("Admin Dashboard");
         stage.setScene(scene);
         stage.show();
 
-
-
-
-
-
-
-
-
-        /*FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("../view/Admin-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Admin");
-        stage.setScene(scene);
-        stage.show();*/
     }
 
 
