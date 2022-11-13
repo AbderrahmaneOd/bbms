@@ -58,7 +58,7 @@ public class AdminController implements Initializable {
         email = txtEmail.getText();
         try
         {
-            pst = con.prepareStatement("insert into registation(name,address,email)values(?,?,?)");
+            pst = con.prepareStatement("insert into admin (name,address,email)values(?,?,?)");
             pst.setString(1, stname);
             pst.setString(2, address);
             pst.setString(3, email);
@@ -95,7 +95,7 @@ public class AdminController implements Initializable {
         ObservableList<BloodBank> students = FXCollections.observableArrayList();
         try
         {
-            pst = con.prepareStatement("select id,name,address,email from registation");
+            pst = con.prepareStatement("select id,name,address,email from admin");
             ResultSet rs = pst.executeQuery();
             {
                 while (rs.next())
@@ -157,7 +157,7 @@ public class AdminController implements Initializable {
 
         try
         {
-            pst = con.prepareStatement("delete from registation where id = ? ");
+            pst = con.prepareStatement("delete from admin where id = ? ");
             pst.setInt(1, id);
             pst.executeUpdate();
 
@@ -193,7 +193,7 @@ public class AdminController implements Initializable {
         email = txtEmail.getText();
         try
         {
-            pst = con.prepareStatement("update registation set name = ?,address = ? ,email = ? where id = ? ");
+            pst = con.prepareStatement("update admin set name = ?,address = ? ,email = ? where id = ? ");
             pst.setString(1, stname);
             pst.setString(2, address);
             pst.setString(3, email);
@@ -230,7 +230,7 @@ public class AdminController implements Initializable {
     {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");;
-            con = DriverManager.getConnection("jdbc:mysql://localhost/studcruds","root","abderrahmane");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/bbms","root","abderrahmane");
         } catch (ClassNotFoundException ex) {
 
         } catch (SQLException ex) {
