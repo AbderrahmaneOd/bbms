@@ -18,21 +18,10 @@ public class BloodBankController {
     private Scene scene;
     private Parent root;
     @FXML
-    private Pane StockManagementPane;
+    private Pane stockManagementPane;
 
     @FXML
     private Pane addDonorsPane;
-    @FXML
-    private Button btnAddDonors;
-
-    @FXML
-    private Button btnHospitalRequest;
-
-    @FXML
-    private Button btnLogOut;
-
-    @FXML
-    private Button btnSearchDonors;
 
     @FXML
     private Button btnStockManagement;
@@ -60,7 +49,7 @@ public class BloodBankController {
 
     @FXML
     void btnStockManagement(ActionEvent event) {
-        StockManagementPane.toFront();
+        stockManagementPane.toFront();
     }
 
     @FXML

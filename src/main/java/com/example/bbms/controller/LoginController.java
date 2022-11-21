@@ -20,7 +20,7 @@ public class LoginController {
 
     @FXML
     void signIn(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(MainApplication.class.getResource("view/BloodBank-view.fxml"));
+        root = FXMLLoader.load(MainApplication.class.getResource("view/Hospital-view.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setTitle("Blood Bank Dashboard");

@@ -147,7 +147,7 @@
                 </TableView>
             </children>
         </Pane>
-        <Pane fx:id="StockManagementPane" prefHeight="514.0" prefWidth="778.0" style="-fx-background-color: #ffffff;">
+        <Pane fx:id="stockManagementPane" prefHeight="514.0" prefWidth="778.0" style="-fx-background-color: #ffffff;">
             <children>
                 <Pane layoutX="52.0" layoutY="78.0" prefHeight="164.0" prefWidth="643.0" style="-fx-background-color: DarkGray; -fx-border-color: black;">
                     <children>
