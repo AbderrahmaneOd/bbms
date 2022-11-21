@@ -8,12 +8,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.layout.Pane;
 
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-public class AdminController implements Initializable {
+public class AdminController {
     
     
     @FXML
@@ -41,15 +42,46 @@ public class AdminController implements Initializable {
     private TableColumn<BloodBank, String> EmailColmn;
 
     @FXML
-    private Button btnAdd;
+    private Pane bloodBanksPane;
 
     @FXML
-    private Button btnUpdate;
+    private Pane campsPane;
 
     @FXML
-    private Button btnDelete;
+    private Pane donorsPane;
 
     @FXML
+    private Pane hospitalsPane;
+
+    @FXML
+    private Pane StatisticsPane;
+
+    @FXML
+    void btnBloodBanks(ActionEvent event) {
+        bloodBanksPane.toFront();
+    }
+
+    @FXML
+    void btnCamps(ActionEvent event) {
+        campsPane.toFront();
+    }
+
+    @FXML
+    void btnDonors(ActionEvent event) {
+        donorsPane.toFront();
+    }
+
+    @FXML
+    void btnHospitals(ActionEvent event) {
+        hospitalsPane.toFront();
+    }
+
+    @FXML
+    void btnStatistics(ActionEvent event) {
+        StatisticsPane.toFront();
+    }
+
+    /*@FXML
     void Add(ActionEvent event) {
 
         String stname,address,email;
@@ -244,6 +276,6 @@ public class AdminController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         Connect();
         table();
-    }
+    } */
 
 }
