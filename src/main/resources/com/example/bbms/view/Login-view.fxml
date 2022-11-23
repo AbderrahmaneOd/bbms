@@ -27,8 +27,8 @@
             <Pane prefHeight="200.0" prefWidth="258.0" BorderPane.alignment="CENTER">
                <children>
                   <Label layoutX="59.0" layoutY="68.0" text="Sign in" />
-                  <PasswordField layoutX="139.0" layoutY="200.0" promptText="Password" />
-                  <TextField layoutX="139.0" layoutY="160.0" promptText="User name" />
+                  <PasswordField fx:id="password" layoutX="139.0" layoutY="200.0" promptText="Password" />
+                  <TextField fx:id="userName" layoutX="139.0" layoutY="160.0" promptText="User name" />
                   <Button layoutX="188.0" layoutY="254.0" mnemonicParsing="false" onAction="#signIn" text="Sign in" />
                </children>
             </Pane>
