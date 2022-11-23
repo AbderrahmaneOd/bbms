@@ -102,60 +102,27 @@
             <Label layoutX="355.0" layoutY="63.0" text="Password" />
             <TextField fx:id="txtName" layoutX="150.0" layoutY="27.0" />
             <TextField fx:id="txtAddress" layoutX="149.0" layoutY="63.0" />
-            <TextField fx:id="txtEmail" layoutX="426.0" layoutY="60.0" />
-            <Button layoutX="472.0" layoutY="119.0" mnemonicParsing="false" text="Add" />
-            <Button layoutX="577.0" layoutY="119.0" mnemonicParsing="false" text="Delete" />
-            <Button layoutX="517.0" layoutY="119.0" mnemonicParsing="false" text="Update" />
+            <TextField fx:id="txtPassword" layoutX="426.0" layoutY="60.0" />
+            <Button fx:id="addBloodBank" layoutX="472.0" layoutY="119.0" mnemonicParsing="false" onAction="#addBloodBank" text="Add" />
+            <Button fx:id="DeleteBloodBank" layoutX="577.0" layoutY="119.0" mnemonicParsing="false" onAction="#DeleteBloodBank" text="Delete" />
+            <Button fx:id="updateBloodBank" layoutX="517.0" layoutY="119.0" mnemonicParsing="false" onAction="#updateBloodBank" text="Update" />
             <Label layoutX="360.0" layoutY="31.0" text="Email" />
-            <TextField layoutX="425.0" layoutY="27.0" />
+            <TextField fx:id="txtEmail" layoutX="425.0" layoutY="27.0" />
          </Pane>
          <Label layoutX="22.0" layoutY="16.0" text="Blood Banks">
             <font>
                <Font size="24.0" />
             </font>
          </Label>
-         <TableView layoutX="19.0" layoutY="271.0" prefHeight="242.0" prefWidth="711.0">
+         <TableView fx:id="tableBloodBank" layoutX="19.0" layoutY="271.0" prefHeight="242.0" prefWidth="711.0">
             <columns>
                <TableColumn fx:id="IDColmn" prefWidth="116.6666259765625" text="ID" />
                <TableColumn fx:id="NameColmn" prefWidth="154.4444580078125" text="Name" />
                <TableColumn fx:id="AddressColmn" prefWidth="176.22216796875" text="Address" />
-               <TableColumn fx:id="EmaiColmn" minWidth="0.0" prefWidth="142.00006103515625" text="Email" />
+               <TableColumn fx:id="EmailColmn" minWidth="0.0" prefWidth="142.00006103515625" text="Email" />
                <TableColumn fx:id="PasswordColmn" prefWidth="126.6666259765625" text="Password" />
             </columns>
          </TableView>
-      </Pane>
-      <Pane fx:id="hospitalsPane" prefHeight="514.0" prefWidth="778.0" style="-fx-background-color: #ffffff;">
-         <children>
-            <Pane layoutX="52.0" layoutY="78.0" prefHeight="164.0" prefWidth="643.0" style="-fx-background-color: DarkGray; -fx-border-color: black;">
-               <children>
-                  <Label layoutX="61.0" layoutY="31.0" text="Name" />
-                  <Label layoutX="59.0" layoutY="67.0" text="Address" />
-                  <Label layoutX="355.0" layoutY="63.0" text="Password" />
-                  <TextField fx:id="txtName1" layoutX="150.0" layoutY="27.0" />
-                  <TextField fx:id="txtAddress1" layoutX="149.0" layoutY="63.0" />
-                  <TextField fx:id="txtEmail1" layoutX="426.0" layoutY="60.0" />
-                  <Button layoutX="472.0" layoutY="119.0" mnemonicParsing="false" text="Add" />
-                  <Button layoutX="577.0" layoutY="119.0" mnemonicParsing="false" text="Delete" />
-                  <Button layoutX="517.0" layoutY="119.0" mnemonicParsing="false" text="Update" />
-                  <Label layoutX="360.0" layoutY="31.0" text="Email" />
-                  <TextField layoutX="425.0" layoutY="27.0" />
-               </children>
-            </Pane>
-            <Label layoutX="22.0" layoutY="16.0" text="Hospitals">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <TableView layoutX="19.0" layoutY="271.0" prefHeight="242.0" prefWidth="711.0">
-               <columns>
-                  <TableColumn fx:id="IDColmn1" prefWidth="116.6666259765625" text="ID" />
-                  <TableColumn fx:id="NameColmn1" prefWidth="154.4444580078125" text="Name" />
-                  <TableColumn fx:id="AddressColmn1" prefWidth="176.22216796875" text="Address" />
-                  <TableColumn fx:id="EmaiColmn1" minWidth="0.0" prefWidth="142.00006103515625" text="Email" />
-                  <TableColumn fx:id="PasswordColmn1" prefWidth="126.6666259765625" text="Password" />
-               </columns>
-            </TableView>
-         </children>
       </Pane>
       <Pane fx:id="donorsPane" prefHeight="514.0" prefWidth="778.0" style="-fx-background-color: #ffffff;">
          <children>
@@ -190,6 +157,7 @@
             </TableView>
          </children>
       </Pane>
+      <Pane fx:id="StatisticsPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" />
       <Pane fx:id="campsPane" prefHeight="514.0" prefWidth="778.0" style="-fx-background-color: #ffffff;">
          <children>
             <Pane layoutX="52.0" layoutY="78.0" prefHeight="164.0" prefWidth="643.0" style="-fx-background-color: DarkGray; -fx-border-color: black;">
@@ -223,6 +191,38 @@
             </TableView>
          </children>
       </Pane>
-      <Pane fx:id="StatisticsPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" />
+      <Pane fx:id="hospitalsPane" prefHeight="514.0" prefWidth="778.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <Pane layoutX="52.0" layoutY="78.0" prefHeight="164.0" prefWidth="643.0" style="-fx-background-color: DarkGray; -fx-border-color: black;">
+               <children>
+                  <Label layoutX="61.0" layoutY="31.0" text="Name" />
+                  <Label layoutX="59.0" layoutY="67.0" text="Address" />
+                  <Label layoutX="355.0" layoutY="63.0" text="Password" />
+                  <TextField fx:id="txtNameH" layoutX="150.0" layoutY="27.0" />
+                  <TextField fx:id="txtAddressH" layoutX="149.0" layoutY="63.0" />
+                  <TextField fx:id="txtPasswordH" layoutX="426.0" layoutY="60.0" />
+                  <Button layoutX="472.0" layoutY="119.0" mnemonicParsing="false" onAction="#addH" text="Add" />
+                  <Button layoutX="577.0" layoutY="119.0" mnemonicParsing="false" onAction="#deleteH" text="Delete" />
+                  <Button layoutX="517.0" layoutY="119.0" mnemonicParsing="false" onAction="#updateH" text="Update" />
+                  <Label layoutX="360.0" layoutY="31.0" text="Email" />
+                  <TextField fx:id="txtEmailH" layoutX="425.0" layoutY="27.0" />
+               </children>
+            </Pane>
+            <Label layoutX="22.0" layoutY="16.0" text="Hospitals">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tableHospital" layoutX="19.0" layoutY="271.0" prefHeight="242.0" prefWidth="711.0">
+               <columns>
+                  <TableColumn fx:id="IDColmnH" prefWidth="116.6666259765625" text="ID" />
+                  <TableColumn fx:id="NameColmnH" prefWidth="154.4444580078125" text="Name" />
+                  <TableColumn fx:id="AddressColmnH" prefWidth="176.22216796875" text="Address" />
+                  <TableColumn fx:id="EmailColmnH" minWidth="0.0" prefWidth="142.00006103515625" text="Email" />
+                  <TableColumn fx:id="PasswordColmnH" prefWidth="126.6666259765625" text="Password" />
+               </columns>
+            </TableView>
+         </children>
+      </Pane>
    </StackPane>
 </AnchorPane>

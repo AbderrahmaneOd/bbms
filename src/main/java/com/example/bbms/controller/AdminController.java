@@ -3,6 +3,7 @@ package com.example.bbms.controller;
 
 import com.example.bbms.MainApplication;
 import com.example.bbms.model.BloodBank;
+import com.example.bbms.model.Hospital;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -21,12 +22,14 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-public class AdminController {
+public class AdminController implements Initializable{
 
+    // Variable for Scene Switching
     private Stage stage;
     private Scene scene;
     private Parent root;
-    
+
+    // FXML Injection for Blood Bank Functionality
     @FXML
     private TextField txtName;
 
@@ -35,9 +38,11 @@ public class AdminController {
 
     @FXML
     private TextField txtEmail;
+    @FXML
+    private TextField txtPassword;
 
     @FXML
-    private TableView<BloodBank> table;
+    private TableView<BloodBank> tableBloodBank;
 
     @FXML
     private TableColumn<BloodBank, String> IDColmn;
@@ -50,7 +55,39 @@ public class AdminController {
 
     @FXML
     private TableColumn<BloodBank, String> EmailColmn;
+    @FXML
+    private TableColumn<BloodBank, String> PasswordColmn;
 
+    // FXML Injection for Hospital Functionality
+
+    @FXML
+    private TableView<Hospital> tableHospital;
+
+    @FXML
+    private TableColumn<Hospital, String> IDColmnH;
+
+    @FXML
+    private TableColumn<Hospital, String> NameColmnH;
+
+    @FXML
+    private TableColumn<Hospital, String> AddressColmnH;
+
+    @FXML
+    private TableColumn<Hospital, String> EmailColmnH;
+    @FXML
+    private TableColumn<Hospital, String> PasswordColmnH;
+    @FXML
+    private TextField txtNameH;
+
+    @FXML
+    private TextField txtAddressH;
+
+    @FXML
+    private TextField txtEmailH;
+    @FXML
+    private TextField txtPasswordH;
+
+    // Pane declaration
     @FXML
     private Pane bloodBanksPane;
 
@@ -100,27 +137,31 @@ public class AdminController {
         stage.show();
     }
 
-    /*@FXML
-    void Add(ActionEvent event) {
 
-        String stname,address,email;
+    // Function for Blood Bank functionality
+    @FXML
+    void addBloodBank(ActionEvent event) {
+
+        String stname,address,email, password;
         stname = txtName.getText();
         address = txtAddress.getText();
         email = txtEmail.getText();
+        password = txtPassword.getText();
         try
         {
-            pst = con.prepareStatement("insert into admin (name,address,email)values(?,?,?)");
+            pst = con.prepareStatement("insert into blood_bank (name_bk,address_bk,email_bk, password_bk)values(?,?,?,?)");
             pst.setString(1, stname);
             pst.setString(2, address);
             pst.setString(3, email);
+            pst.setString(4, password);
             pst.executeUpdate();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("BloodBank Registation");
+            alert.setTitle("BloodBank Insertion");
 
 
             alert.setHeaderText("BloodBank Registation");
-            alert.setContentText("Record Addedddd!");
+            alert.setContentText("Record Added!");
 
             alert.showAndWait();
 
@@ -129,6 +170,7 @@ public class AdminController {
             txtName.setText("");
             txtAddress.setText("");
             txtEmail.setText("");
+            txtPassword.setText("");
             txtName.requestFocus();
         }
         catch (SQLException ex)
@@ -143,27 +185,29 @@ public class AdminController {
     public void table()
     {
         Connect();
-        ObservableList<BloodBank> students = FXCollections.observableArrayList();
+        ObservableList<BloodBank> bloodBanks = FXCollections.observableArrayList();
         try
         {
-            pst = con.prepareStatement("select id,name,address,email from admin");
+            pst = con.prepareStatement("select id_bk, name_bk,address_bk,email_bk, password_bk from blood_bank");
             ResultSet rs = pst.executeQuery();
             {
                 while (rs.next())
                 {
                     BloodBank st = new BloodBank();
-                    st.setId(rs.getString("id"));
-                    st.setName(rs.getString("name"));
-                    st.setAddress(rs.getString("address"));
-                    st.setEmail(rs.getString("email"));
-                    students.add(st);
+                    st.setId(rs.getString("id_bk"));
+                    st.setName(rs.getString("name_bk"));
+                    st.setAddress(rs.getString("address_bk"));
+                    st.setEmail(rs.getString("email_bk"));
+                    st.setPassword(rs.getString("password_bk"));
+                    bloodBanks.add(st);
                 }
             }
-            table.setItems(students);
+            tableBloodBank.setItems(bloodBanks);
             IDColmn.setCellValueFactory(f -> f.getValue().idProperty());
             NameColmn.setCellValueFactory(f -> f.getValue().nameProperty());
             AddressColmn.setCellValueFactory(f -> f.getValue().addressProperty());
             EmailColmn.setCellValueFactory(f -> f.getValue().emailProperty());
+            PasswordColmn.setCellValueFactory(f -> f.getValue().passwordProperty());
 
 
 
@@ -176,18 +220,19 @@ public class AdminController {
             System.out.println("VendorError: " + ex.getErrorCode());
         }
 
-        table.setRowFactory( tv -> {
+        tableBloodBank.setRowFactory( tv -> {
             TableRow<BloodBank> myRow = new TableRow<>();
             myRow.setOnMouseClicked (event ->
             {
                 if (event.getClickCount() == 1 && (!myRow.isEmpty()))
                 {
-                    myIndex =  table.getSelectionModel().getSelectedIndex();
+                    myIndex =  tableBloodBank.getSelectionModel().getSelectedIndex();
 
-                    id = Integer.parseInt(String.valueOf(table.getItems().get(myIndex).getId()));
-                    txtName.setText(table.getItems().get(myIndex).getName());
-                    txtAddress.setText(table.getItems().get(myIndex).getAddress());
-                    txtEmail.setText(table.getItems().get(myIndex).getEmail());
+                    id = Integer.parseInt(String.valueOf(tableBloodBank.getItems().get(myIndex).getId()));
+                    txtName.setText(tableBloodBank.getItems().get(myIndex).getName());
+                    txtAddress.setText(tableBloodBank.getItems().get(myIndex).getAddress());
+                    txtEmail.setText(tableBloodBank.getItems().get(myIndex).getEmail());
+                    txtPassword.setText(tableBloodBank.getItems().get(myIndex).getPassword());
 
 
 
@@ -200,15 +245,15 @@ public class AdminController {
     }
 
     @FXML
-    void Delete(ActionEvent event) {
-        myIndex = table.getSelectionModel().getSelectedIndex();
+    void DeleteBloodBank(ActionEvent event) {
+        myIndex = tableBloodBank.getSelectionModel().getSelectedIndex();
 
-        id = Integer.parseInt(String.valueOf(table.getItems().get(myIndex).getId()));
+        id = Integer.parseInt(String.valueOf(tableBloodBank.getItems().get(myIndex).getId()));
 
 
         try
         {
-            pst = con.prepareStatement("delete from admin where id = ? ");
+            pst = con.prepareStatement("delete from blood_bank where id_bk = ? ");
             pst.setInt(1, id);
             pst.executeUpdate();
 
@@ -231,25 +276,28 @@ public class AdminController {
     }
 
     @FXML
-    void Update(ActionEvent event) {
+    void updateBloodBank(ActionEvent event) {
 
-        String stname,address,email;
+        String stname,address,email, password;
 
-        myIndex = table.getSelectionModel().getSelectedIndex();
+        myIndex = tableBloodBank.getSelectionModel().getSelectedIndex();
 
-        id = Integer.parseInt(String.valueOf(table.getItems().get(myIndex).getId()));
+        id = Integer.parseInt(String.valueOf(tableBloodBank.getItems().get(myIndex).getId()));
 
         stname = txtName.getText();
         address = txtAddress.getText();
         email = txtEmail.getText();
+        password = txtPassword.getText();
         try
         {
-            pst = con.prepareStatement("update admin set name = ?,address = ? ,email = ? where id = ? ");
+            pst = con.prepareStatement("update blood_bank set name_bk = ?,address_bk = ? ,email_bk = ?, password_bk = ? where id_bk = ? ");
             pst.setString(1, stname);
             pst.setString(2, address);
             pst.setString(3, email);
-            pst.setInt(4, id);
+            pst.setString(4, password);
+            pst.setInt(5, id);
             pst.executeUpdate();
+
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("BloodBank Registationn");
 
@@ -267,7 +315,6 @@ public class AdminController {
             System.out.println("VendorError: " + ex.getErrorCode());
         }
     }
-
 
 
     Connection con;
@@ -290,11 +337,188 @@ public class AdminController {
     }
 
 
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Connect();
         table();
-    } */
+        tableH();
+    }
 
+    // Function for Hospital functionality
+    @FXML
+    void addH(ActionEvent event) {
+
+        String stname,address,email, password;
+        stname = txtNameH.getText();
+        address = txtAddressH.getText();
+        email = txtEmailH.getText();
+        password = txtPasswordH.getText();
+        try
+        {
+            pst = con.prepareStatement("insert into hospital (name_h,address_h,email_h, password_h)values(?,?,?,?)");
+            pst.setString(1, stname);
+            pst.setString(2, address);
+            pst.setString(3, email);
+            pst.setString(4, password);
+            pst.executeUpdate();
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Hospital Registation");
+
+
+            alert.setHeaderText("Hospital Registation");
+            alert.setContentText("Record Added!");
+
+            alert.showAndWait();
+
+            tableH();
+
+            txtNameH.setText("");
+            txtAddressH.setText("");
+            txtEmailH.setText("");
+            txtPasswordH.setText("");
+            txtNameH.requestFocus();
+        }
+        catch (SQLException ex)
+        {
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
+        }
+    }
+
+
+    public void tableH()
+    {
+        Connect();
+        ObservableList<Hospital> hospitals = FXCollections.observableArrayList();
+        try
+        {
+            pst = con.prepareStatement("select id_h, name_h,address_h,email_h, password_h from hospital");
+            ResultSet rs = pst.executeQuery();
+            {
+                while (rs.next())
+                {
+                    Hospital st = new Hospital();
+                    st.setId(rs.getString("id_h"));
+                    st.setName(rs.getString("name_h"));
+                    st.setAddress(rs.getString("address_h"));
+                    st.setEmail(rs.getString("email_h"));
+                    st.setPassword(rs.getString("password_h"));
+                    hospitals.add(st);
+                }
+            }
+            tableHospital.setItems(hospitals);
+            IDColmnH.setCellValueFactory(f -> f.getValue().idProperty());
+            NameColmnH.setCellValueFactory(f -> f.getValue().nameProperty());
+            AddressColmnH.setCellValueFactory(f -> f.getValue().addressProperty());
+            EmailColmnH.setCellValueFactory(f -> f.getValue().emailProperty());
+            PasswordColmnH.setCellValueFactory(f -> f.getValue().passwordProperty());
+
+
+
+        }
+
+        catch (SQLException ex)
+        {
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
+        }
+
+        tableHospital.setRowFactory( tv -> {
+            TableRow<Hospital> myRow = new TableRow<>();
+            myRow.setOnMouseClicked (event ->
+            {
+                if (event.getClickCount() == 1 && (!myRow.isEmpty()))
+                {
+                    myIndex =  tableHospital.getSelectionModel().getSelectedIndex();
+
+                    id = Integer.parseInt(String.valueOf(tableHospital.getItems().get(myIndex).getId()));
+                    txtNameH.setText(tableHospital.getItems().get(myIndex).getName());
+                    txtAddressH.setText(tableHospital.getItems().get(myIndex).getAddress());
+                    txtEmailH.setText(tableHospital.getItems().get(myIndex).getEmail());
+                    txtPasswordH.setText(tableHospital.getItems().get(myIndex).getPassword());
+
+
+
+                }
+            });
+            return myRow;
+        });
+
+
+    }
+
+    @FXML
+    void deleteH(ActionEvent event) {
+        myIndex = tableHospital.getSelectionModel().getSelectedIndex();
+
+        id = Integer.parseInt(String.valueOf(tableHospital.getItems().get(myIndex).getId()));
+
+
+        try
+        {
+            pst = con.prepareStatement("delete from hospital where id_h = ? ");
+            pst.setInt(1, id);
+            pst.executeUpdate();
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Hospital Registration");
+
+
+            alert.setHeaderText("Hospital Registration");
+            alert.setContentText("Deleted!");
+
+            alert.showAndWait();
+            tableH();
+        }
+        catch (SQLException ex)
+        {
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
+        }
+    }
+
+    @FXML
+    void updateH(ActionEvent event) {
+
+        String stname,address,email, password;
+
+        myIndex = tableHospital.getSelectionModel().getSelectedIndex();
+
+        id = Integer.parseInt(String.valueOf(tableHospital.getItems().get(myIndex).getId()));
+
+        stname = txtNameH.getText();
+        address = txtAddressH.getText();
+        email = txtEmailH.getText();
+        password = txtPasswordH.getText();
+        try
+        {
+            pst = con.prepareStatement("update hospital set name_h = ?,address_h = ? ,email_h = ?, password_h = ? where id_h = ? ");
+            pst.setString(1, stname);
+            pst.setString(2, address);
+            pst.setString(3, email);
+            pst.setString(4, password);
+            pst.setInt(5, id);
+            pst.executeUpdate();
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Hospital Registration");
+
+
+            alert.setHeaderText("Hospital Registration");
+            alert.setContentText("Updated!");
+
+            alert.showAndWait();
+            tableH();
+        }
+        catch (SQLException ex)
+        {
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
+        }
+    }
 }
