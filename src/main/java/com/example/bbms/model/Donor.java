@@ -5,22 +5,22 @@ import javafx.beans.property.StringProperty;
 
 public class Donor {
     private final StringProperty id;
-    private final StringProperty firstName;
-    private final StringProperty lastName;
+    private final StringProperty fullName;
     private final StringProperty bloodType;
 
     private final StringProperty address;
 
     private final StringProperty  phone;
+    private final StringProperty  email;
 
     public Donor()
     {
         id = new SimpleStringProperty(this, "id");
-        firstName = new SimpleStringProperty(this, "firstName");
-        lastName = new SimpleStringProperty(this, "lastName");
+        fullName = new SimpleStringProperty(this, "firstName");
         address = new SimpleStringProperty(this, "address");
         bloodType = new SimpleStringProperty(this, "bloodType");
         phone = new SimpleStringProperty(this, "phone");
+        email = new SimpleStringProperty(this, "email");
 
     }
 
@@ -28,13 +28,9 @@ public class Donor {
     public String getId() { return id.get(); }
     public void setId(String newId) { id.set(newId); }
 
-    public StringProperty firstNameProperty() { return firstName; }
-    public String getFirstName() { return firstName.get(); }
-    public void setFirstName(String newName) { firstName.set(newName); }
-
-    public StringProperty lastNameProperty() { return lastName; }
-    public String getLastName() { return lastName.get(); }
-    public void setLastName(String newName) { lastName.set(newName); }
+    public StringProperty fullNameProperty() { return fullName; }
+    public String getFullName() { return fullName.get(); }
+    public void setFullName(String newName) { fullName.set(newName); }
 
 
     public StringProperty addressProperty() { return address; }
@@ -48,5 +44,9 @@ public class Donor {
     public StringProperty bloodTypeProperty() { return bloodType; }
     public String getBloodType() { return bloodType.get(); }
     public void setBloodType(String newName) { bloodType.set(newName); }
+
+    public StringProperty emailProperty() { return email; }
+    public String getEmail() { return email.get(); }
+    public void setEmail(String newEmail) { email.set(newEmail); }
 
 }
