@@ -9,7 +9,10 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -18,14 +21,17 @@
    <VBox alignment="TOP_CENTER" prefHeight="530.0" prefWidth="222.0" style="-fx-background-color: #ebe8f9;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
       <ImageView fitHeight="73.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
          <VBox.margin>
-            <Insets bottom="10.0" top="50.0" />
+            <Insets bottom="10.0" top="40.0" />
          </VBox.margin>
          <Image url="@../images/admin_user.png" />
       </ImageView>
-      <Label text="Administrator">
+      <Label fx:id="userTitle" stylesheets="@../css/style.css" text="Administrator">
          <VBox.margin>
-            <Insets bottom="20.0" />
+            <Insets bottom="40.0" />
          </VBox.margin>
+         <font>
+            <Font name="Leelawadee UI" size="21.0" />
+         </font>
       </Label>
       <Button fx:id="btnBloodBanks" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#btnBloodBanks" prefHeight="42.0" prefWidth="259.0" stylesheets="@../css/style.css" text="Blood Banks" textFill="#e7e5e5">
          <graphic>
@@ -42,6 +48,9 @@
          <padding>
             <Insets left="50.0" />
          </padding>
+         <font>
+            <Font size="14.0" />
+         </font>
       </Button>
       <Button fx:id="btnHospitals" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#btnHospitals" prefHeight="42.0" prefWidth="259.0" stylesheets="@../css/style.css" text="Hospitals">
          <graphic>
@@ -124,7 +133,6 @@
             </columns>
          </TableView>
       </Pane>
-      <Pane fx:id="StatisticsPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" />
       <Pane fx:id="hospitalsPane" prefHeight="514.0" prefWidth="778.0" style="-fx-background-color: #ffffff;">
          <children>
             <Pane layoutX="52.0" layoutY="78.0" prefHeight="164.0" prefWidth="643.0" style="-fx-background-color: DarkGray; -fx-border-color: black;">
@@ -156,6 +164,126 @@
                   <TableColumn fx:id="PasswordColmnH" prefWidth="126.6666259765625" text="Password" />
                </columns>
             </TableView>
+         </children>
+      </Pane>
+      <Pane fx:id="donorsPane" prefHeight="514.0" prefWidth="778.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <Pane layoutX="52.0" layoutY="78.0" prefHeight="164.0" prefWidth="643.0" style="-fx-background-color: DarkGray; -fx-border-color: black;">
+               <children>
+                  <Label layoutX="80.0" layoutY="17.0" text="Full Name" />
+                  <Label layoutX="360.0" layoutY="45.0" text="Blood Type" />
+                  <TextField fx:id="txtFullNameD" layoutX="150.0" layoutY="11.0" />
+                  <TextField fx:id="txtPhoneD" layoutX="150.0" layoutY="79.0" />
+                  <TextField fx:id="txtBloodTypeD" layoutX="431.0" layoutY="42.0" />
+                  <Button layoutX="472.0" layoutY="130.0" mnemonicParsing="false" onAction="#addD" text="Add" />
+                  <Button layoutX="577.0" layoutY="130.0" mnemonicParsing="false" onAction="#deleteD" text="Delete" />
+                  <Button layoutX="517.0" layoutY="130.0" mnemonicParsing="false" onAction="#updateD" text="Update" />
+                  <Label layoutX="371.0" layoutY="13.0" text="Email" />
+                  <TextField fx:id="txtEmailD" layoutX="430.0" layoutY="9.0" />
+                  <Label layoutX="89.0" layoutY="81.0" text="Phone" />
+                  <TextField fx:id="txtAddressD" layoutX="150.0" layoutY="46.0" />
+                  <Label layoutX="87.0" layoutY="49.0" text="Address" />
+               </children>
+            </Pane>
+            <Label layoutX="22.0" layoutY="16.0" text="Donors">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tableDonor" layoutX="19.0" layoutY="271.0" prefHeight="242.0" prefWidth="711.0">
+               <columns>
+                  <TableColumn fx:id="IDColmnD" prefWidth="46.66667175292969" text="ID" />
+                  <TableColumn fx:id="FullNameColmnD" prefWidth="91.33331298828125" text="Full Name" />
+                  <TableColumn fx:id="AddressColmnD" prefWidth="180.0" text="Address" />
+                  <TableColumn fx:id="EmailColmnD" minWidth="0.0" prefWidth="132.0" text="Email" />
+                  <TableColumn fx:id="PhoneColmnD" prefWidth="165.33331298828125" text="Phone" />
+                  <TableColumn fx:id="BloodTypeColmnD" prefWidth="98.00006103515625" text="Blood Type" />
+               </columns>
+            </TableView>
+         </children>
+      </Pane>
+      <Pane fx:id="StatisticsPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <GridPane fx:id="GridPane" layoutX="40.0" layoutY="82.0" prefHeight="200.0" prefWidth="665.0" stylesheets="@../css/style.css">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Pane prefHeight="200.0" prefWidth="200.0" stylesheets="@../css/style.css">
+                     <children>
+                        <Label layoutX="119.0" layoutY="5.0" text="A+" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                     <children>
+                        <Label layoutX="119.0" layoutY="5.0" text="B+" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                     <children>
+                        <Label layoutX="119.0" layoutY="5.0" text="A-" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                     <children>
+                        <Label layoutX="102.0" layoutY="5.0" text="Total Donors" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <children>
+                        <Label layoutX="105.0" layoutY="6.0" text="Total Camps" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <children>
+                        <Label layoutX="89.0" layoutY="5.0" text="Total Requests" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <children>
+                        <Label layoutX="119.0" layoutY="5.0" text="O-" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+                     <children>
+                        <Label layoutX="119.0" layoutY="5.0" text="O+" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">
+                     <children>
+                        <Label layoutX="119.0" layoutY="5.0" text="AB+" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <children>
+                        <Label layoutX="119.0" layoutY="5.0" text="AB-" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                     <children>
+                        <Label layoutX="44.0" layoutY="7.0" text="Total  Approved Reqiests" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <Label layoutX="119.0" layoutY="5.0" text="B-" />
+                     </children>
+                  </Pane>
+               </children>
+            </GridPane>
+            <Label layoutX="14.0" layoutY="14.0" text="Available Blood Packet by Group">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <Pane fx:id="campsPane" prefHeight="514.0" prefWidth="778.0" style="-fx-background-color: #ffffff;">
@@ -193,42 +321,6 @@
                   <TableColumn fx:id="OrganizedByColmnC" prefWidth="131.111083984375" text="Organized By" />
                   <TableColumn fx:id="StartDateColmnC" minWidth="0.0" prefWidth="119.5555419921875" text="Start Date" />
                   <TableColumn fx:id="EndDateColmnC" prefWidth="100.88885498046875" text="End Date" />
-               </columns>
-            </TableView>
-         </children>
-      </Pane>
-      <Pane fx:id="donorsPane" prefHeight="514.0" prefWidth="778.0" style="-fx-background-color: #ffffff;">
-         <children>
-            <Pane layoutX="52.0" layoutY="78.0" prefHeight="164.0" prefWidth="643.0" style="-fx-background-color: DarkGray; -fx-border-color: black;">
-               <children>
-                  <Label layoutX="80.0" layoutY="17.0" text="Full Name" />
-                  <Label layoutX="360.0" layoutY="45.0" text="Blood Type" />
-                  <TextField fx:id="txtFullNameD" layoutX="150.0" layoutY="11.0" />
-                  <TextField fx:id="txtPhoneD" layoutX="150.0" layoutY="79.0" />
-                  <TextField fx:id="txtBloodTypeD" layoutX="431.0" layoutY="42.0" />
-                  <Button layoutX="472.0" layoutY="130.0" mnemonicParsing="false" onAction="#addD" text="Add" />
-                  <Button layoutX="577.0" layoutY="130.0" mnemonicParsing="false" onAction="#deleteD" text="Delete" />
-                  <Button layoutX="517.0" layoutY="130.0" mnemonicParsing="false" onAction="#updateD" text="Update" />
-                  <Label layoutX="371.0" layoutY="13.0" text="Email" />
-                  <TextField fx:id="txtEmailD" layoutX="430.0" layoutY="9.0" />
-                  <Label layoutX="89.0" layoutY="81.0" text="Phone" />
-                  <TextField fx:id="txtAddressD" layoutX="150.0" layoutY="46.0" />
-                  <Label layoutX="87.0" layoutY="49.0" text="Address" />
-               </children>
-            </Pane>
-            <Label layoutX="22.0" layoutY="16.0" text="Donors">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <TableView fx:id="tableDonor" layoutX="19.0" layoutY="271.0" prefHeight="242.0" prefWidth="711.0">
-               <columns>
-                  <TableColumn fx:id="IDColmnD" prefWidth="46.66667175292969" text="ID" />
-                  <TableColumn fx:id="FullNameColmnD" prefWidth="91.33331298828125" text="Full Name" />
-                  <TableColumn fx:id="AddressColmnD" prefWidth="180.0" text="Address" />
-                  <TableColumn fx:id="EmailColmnD" minWidth="0.0" prefWidth="132.0" text="Email" />
-                  <TableColumn fx:id="PhoneColmnD" prefWidth="165.33331298828125" text="Phone" />
-                  <TableColumn fx:id="BloodTypeColmnD" prefWidth="98.00006103515625" text="Blood Type" />
                </columns>
             </TableView>
          </children>

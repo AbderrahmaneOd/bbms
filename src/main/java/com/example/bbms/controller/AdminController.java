@@ -893,7 +893,6 @@ public class AdminController implements Initializable{
                     txtPhoneD.setText(tableDonor.getItems().get(myIndex).getPhone());
                     txtEmailD.setText(tableDonor.getItems().get(myIndex).getEmail());
                     txtBloodTypeD.setText(tableDonor.getItems().get(myIndex).getBloodType());
-                    
 
                 }
             });

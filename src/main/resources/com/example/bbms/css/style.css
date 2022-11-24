@@ -1,14 +1,16 @@
-.button
-{
--fx-background-color : #ebe8f9;
--fx-text-fill : #000000;
+.button{
+    -fx-background-color : #ebe8f9;
+    -fx-text-fill : #000000;
+    -fx-font-family : "Trebuchet MS";
+    -fx-font-size : 12px;
 }
+
 .button:hover{
--fx-background-color : #10165F;
+-fx-background-color : #e8dcec;
 }
 .button:pressed
 {
--fx-background-color : #1620A1;
+-fx-background-color : #d1c6d4;
 }
 
 .scroll-pane {
@@ -39,4 +41,20 @@
 
 .scroll-pane > .corner {
     -fx-background-color: #ffffff;
+}
+
+GridPane > Pane > .label{
+    -fx-font-family : "Leelawadee UI";
+    -fx-font-size : 10px;
+    -fx-font-weight : bold;
+}
+
+GridPane > Pane{
+
+}
+
+#userTitle{
+    -fx-font-family : "Leelawadee UI";
+    -fx-font-size : 16px;
+    -fx-font-weight : bold;
 }
