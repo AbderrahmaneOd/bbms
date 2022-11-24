@@ -6,6 +6,7 @@ import com.example.bbms.model.BloodBank;
 import com.example.bbms.model.Camp;
 import com.example.bbms.model.Donor;
 import com.example.bbms.model.Hospital;
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.*;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -22,6 +24,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 public class AdminController implements Initializable{
@@ -30,6 +33,23 @@ public class AdminController implements Initializable{
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    // Variable for statistics
+    @FXML
+    private PieChart pieChart;
+    @FXML
+    private Label labelTotalCamps;
+
+    @FXML
+    private Label labelTotalDonors;
+
+    @FXML
+    private Label labelTotalRequests;
+    @FXML
+    private Label labelTotalDeliveredRequests;
+    @FXML
+    private BarChart<String, Number> barChart;
+
 
     // FXML Injection for Blood Bank Functionality
     @FXML
@@ -417,6 +437,205 @@ public class AdminController implements Initializable{
         tableH();
         tableC();
         tableD();
+        statistics();
+    }
+
+    // Statistics
+    void statistics(){
+        Connect();
+        int aPQuantity = 0, aMQuantity = 0, bPQuantity = 0, bMQuantity = 0,
+                abPQuantity = 0, abMQuantity= 0, oPQuantity= 0, oMQuantity= 0,
+                totalDonors = 0, totalCamps = 0, totalRequests = 0, totalDeliveredRequests = 0,
+                lowA = 0, lowB = 0, lowAB = 0, lowO = 0,
+                mediumA = 0, mediumAB = 0, mediumB = 0, mediumO = 0,
+                highA = 0, highAB = 0, highB = 0, highO = 0;
+        try{
+            Statement stmt = con.createStatement();
+
+            // A+ and A-
+            ResultSet resultSet = stmt.executeQuery("SELECT SUM(quantity_stock) FROM blood_stock WHERE blood_type_stock LIKE \"A+\" ");
+            if(resultSet.next())
+                aPQuantity = resultSet.getInt("SUM(quantity_stock)");
+
+            resultSet = stmt.executeQuery("SELECT SUM(quantity_stock) FROM blood_stock WHERE blood_type_stock LIKE \"A-\" ");
+            if(resultSet.next())
+                aMQuantity = resultSet.getInt("SUM(quantity_stock)");
+
+
+             // B+ and B-
+            resultSet = stmt.executeQuery("SELECT SUM(quantity_stock) FROM blood_stock WHERE blood_type_stock LIKE \"B+\" ");
+            if(resultSet.next())
+                bPQuantity = resultSet.getInt("SUM(quantity_stock)");
+
+            resultSet = stmt.executeQuery("SELECT SUM(quantity_stock) FROM blood_stock WHERE blood_type_stock LIKE \"B-\" ");
+            if(resultSet.next())
+                bMQuantity = resultSet.getInt("SUM(quantity_stock)");
+
+            // AB+ and AB-
+            resultSet = stmt.executeQuery("SELECT SUM(quantity_stock) FROM blood_stock WHERE blood_type_stock LIKE \"AB+\" ");
+            if(resultSet.next())
+                abPQuantity = resultSet.getInt("SUM(quantity_stock)");
+
+
+            resultSet = stmt.executeQuery("SELECT SUM(quantity_stock) FROM blood_stock WHERE blood_type_stock LIKE \"AB-\" ");
+            if(resultSet.next())
+                abMQuantity = resultSet.getInt("SUM(quantity_stock)");
+
+            // O+ and O-
+            resultSet = stmt.executeQuery("SELECT SUM(quantity_stock) FROM blood_stock WHERE blood_type_stock LIKE \"O+\" ");
+            if(resultSet.next())
+                oPQuantity = resultSet.getInt("SUM(quantity_stock)");
+
+
+            resultSet = stmt.executeQuery("SELECT SUM(quantity_stock) FROM blood_stock WHERE blood_type_stock LIKE \"O-\" ");
+            if(resultSet.next())
+                oMQuantity = resultSet.getInt("SUM(quantity_stock)");
+
+            // Total Donors
+            resultSet = stmt.executeQuery("SELECT COUNT(id_donor) FROM donor");
+            if(resultSet.next())
+                totalDonors = resultSet.getInt("COUNT(id_donor)");
+
+            // Total Camps
+            resultSet = stmt.executeQuery("SELECT COUNT(id_camp) FROM camp");
+            if(resultSet.next())
+                totalCamps = resultSet.getInt("COUNT(id_camp)");
+
+            // Total Requests
+            resultSet = stmt.executeQuery("SELECT COUNT(id_request) FROM blood_request");
+            if(resultSet.next())
+                totalRequests = resultSet.getInt("COUNT(id_request)");
+
+            // Total Delivered Requests
+            resultSet = stmt.executeQuery("SELECT COUNT(id_request) FROM blood_request WHERE status = \"delivered\" ");
+            if(resultSet.next())
+                totalDeliveredRequests = resultSet.getInt("COUNT(id_request)");
+
+
+            // Low, Medium and High for A
+            resultSet = stmt.executeQuery("SELECT SUM(quantity_request) FROM blood_request WHERE bloodtype_request LIKE \"A_\" AND priority = \"low\" ");
+            if(resultSet.next())
+                lowA = resultSet.getInt("SUM(quantity_request)");
+            resultSet = stmt.executeQuery("SELECT SUM(quantity_request) FROM blood_request WHERE bloodtype_request LIKE \"A_\" AND priority = \"medium\"");
+            if(resultSet.next())
+                mediumA = resultSet.getInt("SUM(quantity_request)");
+            resultSet = stmt.executeQuery("SELECT SUM(quantity_request) FROM blood_request WHERE bloodtype_request LIKE \"A_\" AND priority = \"high\"");
+            if(resultSet.next())
+                highA = resultSet.getInt("SUM(quantity_request)");
+
+
+            // Low, Medium and High for B
+            resultSet = stmt.executeQuery("SELECT SUM(quantity_request) FROM blood_request WHERE bloodtype_request LIKE \"B_\" AND priority = \"low\"");
+            if(resultSet.next())
+                lowB = resultSet.getInt("SUM(quantity_request)");
+            resultSet = stmt.executeQuery("SELECT SUM(quantity_request) FROM blood_request WHERE bloodtype_request LIKE \"B_\" AND priority = \"medium\"");
+            if(resultSet.next())
+                mediumB = resultSet.getInt("SUM(quantity_request)");
+            resultSet = stmt.executeQuery("SELECT SUM(quantity_request) FROM blood_request WHERE bloodtype_request LIKE \"B_\" AND priority = \"high\"");
+            if(resultSet.next())
+
+            // Low, Medium and High for AB
+            resultSet = stmt.executeQuery("SELECT SUM(quantity_request) FROM blood_request WHERE bloodtype_request LIKE \"AB_\" AND priority = \"low\"");
+            if(resultSet.next())
+                lowAB = resultSet.getInt("SUM(quantity_request)");
+            resultSet = stmt.executeQuery("SELECT SUM(quantity_request) FROM blood_request WHERE bloodtype_request LIKE \"AB_\" AND priority = \"medium\"");
+            if(resultSet.next())
+                mediumAB = resultSet.getInt("SUM(quantity_request)");
+            resultSet = stmt.executeQuery("SELECT SUM(quantity_request) FROM blood_request WHERE bloodtype_request LIKE \"AB_\" AND priority = \"high\"");
+            if(resultSet.next())
+                highAB = resultSet.getInt("SUM(quantity_request)");
+
+            // Low, Medium and High for O
+            resultSet = stmt.executeQuery("SELECT SUM(quantity_request) FROM blood_request WHERE bloodtype_request LIKE \"O_\" AND priority = \"low\" ");
+            if(resultSet.next())
+                lowO = resultSet.getInt("SUM(quantity_request)");
+            resultSet = stmt.executeQuery("SELECT SUM(quantity_request) FROM blood_request WHERE bloodtype_request LIKE \"O_\" AND priority = \"medium\"");
+            if(resultSet.next())
+                mediumO = resultSet.getInt("SUM(quantity_request)");
+            resultSet = stmt.executeQuery("SELECT SUM(quantity_request) FROM blood_request WHERE bloodtype_request LIKE \"O_\" AND priority = \"high\"");
+            if(resultSet.next())
+                highO = resultSet.getInt("SUM(quantity_request)");
+
+        } catch (SQLException ex) {
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
+        }
+
+
+        labelTotalDonors.setText(String.valueOf(totalDonors));
+        labelTotalCamps.setText(String.valueOf(totalCamps));
+        labelTotalRequests.setText(String.valueOf(totalRequests));
+        labelTotalDeliveredRequests.setText(String.valueOf(totalDeliveredRequests));
+
+        //Preparing ObservbleList object
+        ObservableList<PieChart.Data> bloodQuantity = FXCollections.observableArrayList(
+                new PieChart.Data("A+", aPQuantity),
+                new PieChart.Data("B+", abPQuantity),
+                new PieChart.Data("AB+", bPQuantity),
+                new PieChart.Data("O+", oPQuantity),
+
+                new PieChart.Data("A-", aMQuantity),
+                new PieChart.Data("B-", bMQuantity),
+                new PieChart.Data("AB-", abMQuantity),
+                new PieChart.Data("O-", oMQuantity) );
+
+        pieChart.setData(bloodQuantity);
+        pieChart.setTitle("Available Blood Packet by Group");
+        pieChart.setClockwise(true);
+        pieChart.setLabelLineLength(50);
+        pieChart.setLabelsVisible(true);
+        pieChart.setStartAngle(180);
+
+        //Defining the x axis
+        CategoryAxis xAxis = new CategoryAxis();
+
+        xAxis.setCategories(FXCollections.<String>observableArrayList(Arrays.asList(
+                "A", "B", "AB", "O")));
+        xAxis.setLabel("Request Priority");
+
+        //Defining the y axis
+        NumberAxis yAxis = new NumberAxis();
+        yAxis.setLabel("Blood packet");
+
+        BarChart barChart = new BarChart(xAxis, yAxis);
+        barChart.setTitle("Blood Request by Priority");
+        barChart.setLayoutX(330);
+        barChart.setLayoutY(180);
+        barChart.setPrefHeight(343);
+        barChart.setPrefWidth(360);
+
+        //Prepare XYChart.Series objects by setting data
+        XYChart.Series<String, Number> series1 = new XYChart.Series<>();
+        series1.setName("High");
+        series1.getData().add(new XYChart.Data<>("A", highA));
+        series1.getData().add(new XYChart.Data<>("B", highB));
+        series1.getData().add(new XYChart.Data<>("AB", highAB));
+        series1.getData().add(new XYChart.Data<>("O", highO));
+
+
+        XYChart.Series<String, Number> series2 = new XYChart.Series<>();
+        series2.setName("Medium");
+        series2.getData().add(new XYChart.Data<>("A", mediumA));
+        series2.getData().add(new XYChart.Data<>("B", mediumB));
+        series2.getData().add(new XYChart.Data<>("AB", mediumAB));
+        series2.getData().add(new XYChart.Data<>("O", mediumO));
+
+
+        XYChart.Series<String, Number> series3 = new XYChart.Series<>();
+        series3.setName("Low");
+        series3.getData().add(new XYChart.Data<>("A", lowA));
+        series3.getData().add(new XYChart.Data<>("B", lowB));
+        series3.getData().add(new XYChart.Data<>("AB", lowAB));
+        series3.getData().add(new XYChart.Data<>("O", lowO));
+
+
+
+        //Setting the data to bar chart
+        barChart.getData().addAll(series1, series2, series3);
+        StatisticsPane.getChildren().add(barChart);
+
+
     }
 
     // Function for Hospital functionality
@@ -751,7 +970,7 @@ public class AdminController implements Initializable{
     @FXML
     void updateC(ActionEvent event) {
 
-        String stname,address,phone,startDate, endDate,organizedBy;;
+        String stname,address,phone,startDate, endDate,organizedBy;
 
         myIndex = tableCamp.getSelectionModel().getSelectedIndex();
 

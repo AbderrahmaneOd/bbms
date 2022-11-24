@@ -6,11 +6,11 @@
 }
 
 .button:hover{
--fx-background-color : #e8dcec;
+    -fx-background-color : #e8dcec;
 }
 .button:pressed
 {
--fx-background-color : #d1c6d4;
+    -fx-background-color : #d1c6d4;
 }
 
 .scroll-pane {
@@ -50,7 +50,8 @@ GridPane > Pane > .label{
 }
 
 GridPane > Pane{
-
+    -fx-background-color : #e8dcec;
+    -fx-border-color : black;
 }
 
 #userTitle{
