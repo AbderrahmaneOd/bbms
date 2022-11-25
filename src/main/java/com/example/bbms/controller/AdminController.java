@@ -6,7 +6,6 @@ import com.example.bbms.model.BloodBank;
 import com.example.bbms.model.Camp;
 import com.example.bbms.model.Donor;
 import com.example.bbms.model.Hospital;
-import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -453,41 +452,41 @@ public class AdminController implements Initializable{
             Statement stmt = con.createStatement();
 
             // A+ and A-
-            ResultSet resultSet = stmt.executeQuery("SELECT SUM(quantity_stock) FROM blood_stock WHERE blood_type_stock LIKE \"A+\" ");
+            ResultSet resultSet = stmt.executeQuery("SELECT SUM(quantity_stock) FROM blood_stock WHERE bloodtype_stock LIKE \"A+\" ");
             if(resultSet.next())
                 aPQuantity = resultSet.getInt("SUM(quantity_stock)");
 
-            resultSet = stmt.executeQuery("SELECT SUM(quantity_stock) FROM blood_stock WHERE blood_type_stock LIKE \"A-\" ");
+            resultSet = stmt.executeQuery("SELECT SUM(quantity_stock) FROM blood_stock WHERE bloodtype_stock LIKE \"A-\" ");
             if(resultSet.next())
                 aMQuantity = resultSet.getInt("SUM(quantity_stock)");
 
 
              // B+ and B-
-            resultSet = stmt.executeQuery("SELECT SUM(quantity_stock) FROM blood_stock WHERE blood_type_stock LIKE \"B+\" ");
+            resultSet = stmt.executeQuery("SELECT SUM(quantity_stock) FROM blood_stock WHERE bloodtype_stock LIKE \"B+\" ");
             if(resultSet.next())
                 bPQuantity = resultSet.getInt("SUM(quantity_stock)");
 
-            resultSet = stmt.executeQuery("SELECT SUM(quantity_stock) FROM blood_stock WHERE blood_type_stock LIKE \"B-\" ");
+            resultSet = stmt.executeQuery("SELECT SUM(quantity_stock) FROM blood_stock WHERE bloodtype_stock LIKE \"B-\" ");
             if(resultSet.next())
                 bMQuantity = resultSet.getInt("SUM(quantity_stock)");
 
             // AB+ and AB-
-            resultSet = stmt.executeQuery("SELECT SUM(quantity_stock) FROM blood_stock WHERE blood_type_stock LIKE \"AB+\" ");
+            resultSet = stmt.executeQuery("SELECT SUM(quantity_stock) FROM blood_stock WHERE bloodtype_stock LIKE \"AB+\" ");
             if(resultSet.next())
                 abPQuantity = resultSet.getInt("SUM(quantity_stock)");
 
 
-            resultSet = stmt.executeQuery("SELECT SUM(quantity_stock) FROM blood_stock WHERE blood_type_stock LIKE \"AB-\" ");
+            resultSet = stmt.executeQuery("SELECT SUM(quantity_stock) FROM blood_stock WHERE bloodtype_stock LIKE \"AB-\" ");
             if(resultSet.next())
                 abMQuantity = resultSet.getInt("SUM(quantity_stock)");
 
             // O+ and O-
-            resultSet = stmt.executeQuery("SELECT SUM(quantity_stock) FROM blood_stock WHERE blood_type_stock LIKE \"O+\" ");
+            resultSet = stmt.executeQuery("SELECT SUM(quantity_stock) FROM blood_stock WHERE bloodtype_stock LIKE \"O+\" ");
             if(resultSet.next())
                 oPQuantity = resultSet.getInt("SUM(quantity_stock)");
 
 
-            resultSet = stmt.executeQuery("SELECT SUM(quantity_stock) FROM blood_stock WHERE blood_type_stock LIKE \"O-\" ");
+            resultSet = stmt.executeQuery("SELECT SUM(quantity_stock) FROM blood_stock WHERE bloodtype_stock LIKE \"O-\" ");
             if(resultSet.next())
                 oMQuantity = resultSet.getInt("SUM(quantity_stock)");
 
@@ -600,8 +599,8 @@ public class AdminController implements Initializable{
 
         BarChart barChart = new BarChart(xAxis, yAxis);
         barChart.setTitle("Blood Request by Priority");
-        barChart.setLayoutX(330);
-        barChart.setLayoutY(180);
+        barChart.setLayoutX(340);
+        barChart.setLayoutY(155);
         barChart.setPrefHeight(343);
         barChart.setPrefWidth(360);
 

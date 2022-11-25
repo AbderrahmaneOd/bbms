@@ -45,17 +45,25 @@
 
 GridPane > Pane > .label{
     -fx-font-family : "Leelawadee UI";
-    -fx-font-size : 10px;
+    -fx-font-size : 15px;
     -fx-font-weight : bold;
 }
 
 GridPane > Pane{
-    -fx-background-color : #e8dcec;
     -fx-border-color : black;
+    -fx-border-radius : 10px;
+    -fx-background-color : #EDE4F1;
 }
 
 #userTitle{
     -fx-font-family : "Leelawadee UI";
     -fx-font-size : 16px;
     -fx-font-weight : bold;
+}
+
+
+Pane {
+    -fx-border-color : black;
+    -fx-border-radius : 10px;
+    -fx-background-color : #EDE4F1;
 }

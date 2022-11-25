@@ -106,7 +106,7 @@
    </VBox>
    <StackPane layoutX="222.0" prefHeight="530.0" prefWidth="741.0" style="-fx-background-color: #02030A;">
       <Pane fx:id="bloodBanksPane" prefHeight="514.0" prefWidth="778.0" style="-fx-background-color: #ffffff;">
-         <Pane layoutX="52.0" layoutY="78.0" prefHeight="164.0" prefWidth="643.0" style="-fx-background-color: DarkGray; -fx-border-color: black;">
+         <Pane layoutX="52.0" layoutY="78.0" prefHeight="164.0" prefWidth="643.0" style="-fx-background-color: #EDE4F1; -fx-border-color: black; -fx-border-radius: 10px;">
             <Label layoutX="61.0" layoutY="31.0" text="Name" />
             <Label layoutX="59.0" layoutY="67.0" text="Address" />
             <Label layoutX="355.0" layoutY="63.0" text="Password" />
@@ -119,12 +119,12 @@
             <Label layoutX="360.0" layoutY="31.0" text="Email" />
             <TextField fx:id="txtEmail" layoutX="425.0" layoutY="27.0" />
          </Pane>
-         <Label layoutX="22.0" layoutY="16.0" text="Blood Banks">
+         <Label layoutX="22.0" layoutY="16.0" stylesheets="@../css/style.css" text="Blood Banks">
             <font>
-               <Font size="24.0" />
+               <Font name="Arial Rounded MT Bold" size="22.0" />
             </font>
          </Label>
-         <TableView fx:id="tableBloodBank" layoutX="19.0" layoutY="271.0" prefHeight="242.0" prefWidth="711.0">
+         <TableView fx:id="tableBloodBank" layoutX="19.0" layoutY="271.0" prefHeight="242.0" prefWidth="711.0" style="-fx-border-color: LightSlateGray; -fx-border-radius: 5px;">
             <columns>
                <TableColumn fx:id="IDColmn" prefWidth="116.6666259765625" text="ID" />
                <TableColumn fx:id="NameColmn" prefWidth="154.4444580078125" text="Name" />
@@ -136,7 +136,7 @@
       </Pane>
       <Pane fx:id="hospitalsPane" prefHeight="514.0" prefWidth="778.0" style="-fx-background-color: #ffffff;">
          <children>
-            <Pane layoutX="52.0" layoutY="78.0" prefHeight="164.0" prefWidth="643.0" style="-fx-background-color: DarkGray; -fx-border-color: black;">
+            <Pane layoutX="52.0" layoutY="78.0" prefHeight="164.0" prefWidth="643.0" style="-fx-background-color: #EDE4F1; -fx-border-color: black; -fx-border-radius: 10px;">
                <children>
                   <Label layoutX="61.0" layoutY="31.0" text="Name" />
                   <Label layoutX="59.0" layoutY="67.0" text="Address" />
@@ -151,12 +151,12 @@
                   <TextField fx:id="txtEmailH" layoutX="425.0" layoutY="27.0" />
                </children>
             </Pane>
-            <Label layoutX="22.0" layoutY="16.0" text="Hospitals">
+            <Label layoutX="22.0" layoutY="16.0" stylesheets="@../css/style.css" text="Hospitals">
                <font>
-                  <Font size="24.0" />
+                  <Font name="Arial Rounded MT Bold" size="22.0" />
                </font>
             </Label>
-            <TableView fx:id="tableHospital" layoutX="19.0" layoutY="271.0" prefHeight="242.0" prefWidth="711.0">
+            <TableView fx:id="tableHospital" layoutX="19.0" layoutY="271.0" prefHeight="242.0" prefWidth="711.0" style="-fx-border-radius: 5px; -fx-border-color: LightSlateGray;">
                <columns>
                   <TableColumn fx:id="IDColmnH" prefWidth="116.6666259765625" text="ID" />
                   <TableColumn fx:id="NameColmnH" prefWidth="154.4444580078125" text="Name" />
@@ -169,7 +169,7 @@
       </Pane>
       <Pane fx:id="donorsPane" prefHeight="514.0" prefWidth="778.0" style="-fx-background-color: #ffffff;">
          <children>
-            <Pane layoutX="52.0" layoutY="78.0" prefHeight="164.0" prefWidth="643.0" style="-fx-background-color: DarkGray; -fx-border-color: black;">
+            <Pane layoutX="52.0" layoutY="78.0" prefHeight="164.0" prefWidth="643.0" style="-fx-background-color: #EDE4F1; -fx-border-color: black; -fx-border-radius: 10px;">
                <children>
                   <Label layoutX="80.0" layoutY="17.0" text="Full Name" />
                   <Label layoutX="360.0" layoutY="45.0" text="Blood Type" />
@@ -186,12 +186,12 @@
                   <Label layoutX="87.0" layoutY="49.0" text="Address" />
                </children>
             </Pane>
-            <Label layoutX="22.0" layoutY="16.0" text="Donors">
+            <Label layoutX="22.0" layoutY="16.0" stylesheets="@../css/style.css" text="Donors">
                <font>
-                  <Font size="24.0" />
+                  <Font name="Arial Rounded MT Bold" size="22.0" />
                </font>
             </Label>
-            <TableView fx:id="tableDonor" layoutX="19.0" layoutY="271.0" prefHeight="242.0" prefWidth="711.0">
+            <TableView fx:id="tableDonor" layoutX="19.0" layoutY="271.0" prefHeight="242.0" prefWidth="711.0" style="-fx-border-color: LightSlateGray; -fx-border-radius: 5px;">
                <columns>
                   <TableColumn fx:id="IDColmnD" prefWidth="46.66667175292969" text="ID" />
                   <TableColumn fx:id="FullNameColmnD" prefWidth="91.33331298828125" text="Full Name" />
@@ -205,7 +205,7 @@
       </Pane>
       <Pane fx:id="campsPane" prefHeight="514.0" prefWidth="778.0" style="-fx-background-color: #ffffff;">
          <children>
-            <Pane layoutX="52.0" layoutY="78.0" prefHeight="164.0" prefWidth="643.0" style="-fx-background-color: DarkGray; -fx-border-color: black;">
+            <Pane layoutX="52.0" layoutY="78.0" prefHeight="164.0" prefWidth="643.0" style="-fx-background-color: #EDE4F1; -fx-border-radius: 10px; -fx-border-color: black;">
                <children>
                   <Label layoutX="72.0" layoutY="23.0" text="Name" />
                   <Label layoutX="70.0" layoutY="57.0" text="Address" />
@@ -224,12 +224,12 @@
                   <Label layoutX="358.0" layoutY="87.0" text="End Date" />
                </children>
             </Pane>
-            <Label layoutX="22.0" layoutY="16.0" text="Camps">
+            <Label layoutX="22.0" layoutY="16.0" stylesheets="@../css/style.css" text="Camps">
                <font>
-                  <Font size="24.0" />
+                  <Font name="Arial Rounded MT Bold" size="22.0" />
                </font>
             </Label>
-            <TableView fx:id="tableCamp" layoutX="19.0" layoutY="271.0" prefHeight="242.0" prefWidth="711.0">
+            <TableView fx:id="tableCamp" layoutX="19.0" layoutY="271.0" prefHeight="242.0" prefWidth="711.0" style="-fx-border-radius: 5px; -fx-border-color: LightSlateGray;">
                <columns>
                   <TableColumn fx:id="IDColmnC" prefWidth="41.11112976074219" text="ID" />
                   <TableColumn fx:id="NameColmnC" prefWidth="88.888916015625" text="Name" />
@@ -244,7 +244,7 @@
       </Pane>
       <Pane fx:id="StatisticsPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff;">
          <children>
-            <GridPane fx:id="GridPane" layoutX="15.0" layoutY="59.0" prefHeight="76.0" prefWidth="711.0" stylesheets="@../css/style.css">
+            <GridPane fx:id="GridPane" hgap="12.0" layoutX="15.0" layoutY="59.0" prefHeight="76.0" prefWidth="711.0" stylesheets="@../css/style.css">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -257,36 +257,53 @@
                <children>
                   <Pane prefHeight="175.0" prefWidth="189.0">
                      <children>
-                        <Label layoutX="86.0" layoutY="7.0" text="Total Donors" />
+                        <Label layoutX="62.0" layoutY="3.0" text="Total Donors" />
                         <Label fx:id="labelTotalDonors" layoutX="14.0" layoutY="45.0" text="0" />
                      </children>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
                   </Pane>
                   <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                      <children>
-                        <Label layoutX="81.0" layoutY="7.0" text="Total Camps" />
+                        <Label layoutX="66.0" layoutY="4.0" text="Total Camps" />
                         <Label fx:id="labelTotalCamps" layoutX="14.0" layoutY="45.0" text="0" />
                      </children>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
                   </Pane>
                   <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
                      <children>
-                        <Label layoutX="65.0" layoutY="7.0" text="Total Requests" />
+                        <Label layoutX="50.0" layoutY="4.0" text="Total Requests" />
                         <Label fx:id="labelTotalRequests" layoutX="14.0" layoutY="45.0" text="0" />
                      </children>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
                   </Pane>
                   <Pane prefHeight="69.0" prefWidth="73.0" GridPane.columnIndex="3">
                      <children>
-                        <Label layoutX="28.0" layoutY="7.0" text="Total  Delivered Requests" />
+                        <Label layoutX="50.0" layoutY="3.0" text="Total Delivered" />
                         <Label fx:id="labelTotalDeliveredRequests" layoutX="28.0" layoutY="45.0" text="0" />
+                        <Label layoutX="94.0" layoutY="20.0" text="Requests" />
                      </children>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
                   </Pane>
                </children>
             </GridPane>
-            <Label layoutX="14.0" layoutY="14.0" text="Available Blood Packet by Group">
+            <Label layoutX="12.0" layoutY="12.0" text="Available Blood Packet by Group">
                <font>
-                  <Font size="24.0" />
+                  <Font name="Arial Rounded MT Bold" size="22.0" />
                </font>
             </Label>
-            <PieChart fx:id="pieChart" layoutX="-17.0" layoutY="177.0" prefHeight="343.0" prefWidth="352.0" />
+            <Pane layoutX="19.0" layoutY="155.0" prefHeight="362.0" prefWidth="711.0" stylesheets="@../css/style.css">
+               <children>
+                  <PieChart fx:id="pieChart" prefHeight="343.0" prefWidth="352.0" />
+               </children>
+            </Pane>
          </children>
       </Pane>
    </StackPane>

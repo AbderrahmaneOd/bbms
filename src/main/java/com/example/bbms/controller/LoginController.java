@@ -30,7 +30,7 @@ public class LoginController implements Initializable {
     private TextField userName;
     @FXML
     private ChoiceBox<String> userType;
-    private String[] userTypes = {"Admin", "Hospital", "Blood Bank"};
+    final private String[] userTypes = {"Admin", "Hospital", "Blood Bank"};
 
     @FXML
     void signIn(ActionEvent event) throws IOException {
