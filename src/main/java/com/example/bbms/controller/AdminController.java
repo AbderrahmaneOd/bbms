@@ -46,9 +46,6 @@ public class AdminController implements Initializable{
     private Label labelTotalRequests;
     @FXML
     private Label labelTotalDeliveredRequests;
-    @FXML
-    private BarChart<String, Number> barChart;
-
 
     // FXML Injection for Blood Bank Functionality
     @FXML
@@ -452,43 +449,43 @@ public class AdminController implements Initializable{
             Statement stmt = con.createStatement();
 
             // A+ and A-
-            ResultSet resultSet = stmt.executeQuery("SELECT SUM(quantity_stock) FROM blood_stock WHERE bloodtype_stock LIKE \"A+\" ");
+            ResultSet resultSet = stmt.executeQuery("SELECT SUM(subTotal) from (select sum(quantity_stock_bk) as subTotal from blood_stock_bloodbank WHERE bloodtype_stock_bk = \'A+\' union all select sum(quantity_stock_h) from blood_stock_hospital WHERE bloodtype_stock_h = \'A+\') as x;");
             if(resultSet.next())
-                aPQuantity = resultSet.getInt("SUM(quantity_stock)");
+                aPQuantity = resultSet.getInt("SUM(subTotal)");
 
-            resultSet = stmt.executeQuery("SELECT SUM(quantity_stock) FROM blood_stock WHERE bloodtype_stock LIKE \"A-\" ");
+            resultSet = stmt.executeQuery("SELECT SUM(subTotal) from (select sum(quantity_stock_bk) as subTotal from blood_stock_bloodbank WHERE bloodtype_stock_bk = \'A-\' union all select sum(quantity_stock_h) from blood_stock_hospital WHERE bloodtype_stock_h = \'A-\') as x;");
             if(resultSet.next())
-                aMQuantity = resultSet.getInt("SUM(quantity_stock)");
+                aMQuantity = resultSet.getInt("SUM(subTotal)");
 
 
              // B+ and B-
-            resultSet = stmt.executeQuery("SELECT SUM(quantity_stock) FROM blood_stock WHERE bloodtype_stock LIKE \"B+\" ");
+            resultSet = stmt.executeQuery("SELECT SUM(subTotal) from (select sum(quantity_stock_bk) as subTotal from blood_stock_bloodbank WHERE bloodtype_stock_bk = \'B+\' union all select sum(quantity_stock_h) from blood_stock_hospital WHERE bloodtype_stock_h = \'B+\') as x;");
             if(resultSet.next())
-                bPQuantity = resultSet.getInt("SUM(quantity_stock)");
+                bPQuantity = resultSet.getInt("SUM(subTotal)");
 
-            resultSet = stmt.executeQuery("SELECT SUM(quantity_stock) FROM blood_stock WHERE bloodtype_stock LIKE \"B-\" ");
+            resultSet = stmt.executeQuery("SELECT SUM(subTotal) from (select sum(quantity_stock_bk) as subTotal from blood_stock_bloodbank WHERE bloodtype_stock_bk = \'B-\' union all select sum(quantity_stock_h) from blood_stock_hospital WHERE bloodtype_stock_h = \'B-\') as x;");
             if(resultSet.next())
-                bMQuantity = resultSet.getInt("SUM(quantity_stock)");
+                bMQuantity = resultSet.getInt("SUM(subTotal)");
 
             // AB+ and AB-
-            resultSet = stmt.executeQuery("SELECT SUM(quantity_stock) FROM blood_stock WHERE bloodtype_stock LIKE \"AB+\" ");
+            resultSet = stmt.executeQuery("SELECT SUM(subTotal) from (select sum(quantity_stock_bk) as subTotal from blood_stock_bloodbank WHERE bloodtype_stock_bk = \'AB+\' union all select sum(quantity_stock_h) from blood_stock_hospital WHERE bloodtype_stock_h = \'AB+\') as x;");
             if(resultSet.next())
-                abPQuantity = resultSet.getInt("SUM(quantity_stock)");
+                abPQuantity = resultSet.getInt("SUM(subTotal)");
 
 
-            resultSet = stmt.executeQuery("SELECT SUM(quantity_stock) FROM blood_stock WHERE bloodtype_stock LIKE \"AB-\" ");
+            resultSet = stmt.executeQuery("SELECT SUM(subTotal) from (select sum(quantity_stock_bk) as subTotal from blood_stock_bloodbank WHERE bloodtype_stock_bk = \'AB-\' union all select sum(quantity_stock_h) from blood_stock_hospital WHERE bloodtype_stock_h = \'AB-\') as x;");
             if(resultSet.next())
-                abMQuantity = resultSet.getInt("SUM(quantity_stock)");
+                abMQuantity = resultSet.getInt("SUM(subTotal)");
 
             // O+ and O-
-            resultSet = stmt.executeQuery("SELECT SUM(quantity_stock) FROM blood_stock WHERE bloodtype_stock LIKE \"O+\" ");
+            resultSet = stmt.executeQuery("SELECT SUM(subTotal) from (select sum(quantity_stock_bk) as subTotal from blood_stock_bloodbank WHERE bloodtype_stock_bk = \'O+\' union all select sum(quantity_stock_h) from blood_stock_hospital WHERE bloodtype_stock_h = \'O+\') as x;");
             if(resultSet.next())
-                oPQuantity = resultSet.getInt("SUM(quantity_stock)");
+                oPQuantity = resultSet.getInt("SUM(subTotal)");
 
 
-            resultSet = stmt.executeQuery("SELECT SUM(quantity_stock) FROM blood_stock WHERE bloodtype_stock LIKE \"O-\" ");
+            resultSet = stmt.executeQuery("SELECT SUM(subTotal) from (select sum(quantity_stock_bk) as subTotal from blood_stock_bloodbank WHERE bloodtype_stock_bk = \'O-\' union all select sum(quantity_stock_h) from blood_stock_hospital WHERE bloodtype_stock_h = \'O-\') as x; ");
             if(resultSet.next())
-                oMQuantity = resultSet.getInt("SUM(quantity_stock)");
+                oMQuantity = resultSet.getInt("SUM(subTotal)");
 
             // Total Donors
             resultSet = stmt.executeQuery("SELECT COUNT(id_donor) FROM donor");
@@ -1024,7 +1021,7 @@ public class AdminController implements Initializable{
 
         try
         {
-            pst = con.prepareStatement("insert into donor (full_name, address_donor, phone_donor, email_donor, blood_type) values (?,?,?,?,?)");
+            pst = con.prepareStatement("insert into donor (full_name, address_donor, phone_donor, email_donor, bloodtype_donor) values (?,?,?,?,?)");
             pst.setString(1, stname);
             pst.setString(2, address);
             pst.setString(3, phone);
@@ -1064,7 +1061,7 @@ public class AdminController implements Initializable{
         ObservableList<Donor> donors = FXCollections.observableArrayList();
         try
         {
-            pst = con.prepareStatement("select id_donor ,full_name, address_donor, phone_donor, email_donor, blood_type from donor");
+            pst = con.prepareStatement("select id_donor ,full_name, address_donor, phone_donor, email_donor, bloodtype_donor from donor");
             ResultSet rs = pst.executeQuery();
             {
                 while (rs.next())
@@ -1075,7 +1072,7 @@ public class AdminController implements Initializable{
                     st.setAddress(rs.getString("address_donor"));
                     st.setPhone(rs.getString("phone_donor"));
                     st.setEmail(rs.getString("email_donor"));
-                    st.setBloodType(rs.getString("blood_type"));
+                    st.setBloodType(rs.getString("bloodtype_donor"));
                     donors.add(st);
                 }
             }
@@ -1167,7 +1164,7 @@ public class AdminController implements Initializable{
         bloodType = txtBloodTypeD.getText();
         try
         {
-            pst = con.prepareStatement("update donor set full_name = ?,address_donor = ? ,phone_donor = ?, email_donor = ?, blood_type = ? where id_donor = ? ");
+            pst = con.prepareStatement("update donor set full_name = ?,address_donor = ? ,phone_donor = ?, email_donor = ?, bloodtype_donor = ? where id_donor = ? ");
             pst.setString(1, stname);
             pst.setString(2, address);
             pst.setString(3, phone);
