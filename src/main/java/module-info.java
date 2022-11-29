@@ -2,6 +2,7 @@ module com.example.bbms {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
+    requires mysql.connector.java;
 
 
     opens com.example.bbms to javafx.fxml;
