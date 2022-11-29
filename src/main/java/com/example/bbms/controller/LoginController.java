@@ -87,7 +87,13 @@ public class LoginController implements Initializable {
                     userPasswordVariable = resultSet.getString("password_bk");
 
                 if (userPasswordVariable.equals(password.getText())) {
-                    root = FXMLLoader.load(MainApplication.class.getResource("view/BloodBank-view.fxml"));
+
+                    FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("view/BloodBank-view.fxml"));
+                    root = loader.load();
+
+                    BloodBankController bloodBankController = loader.getController();
+                    bloodBankController.getBloodBankUserId(userId.getText());
+                    //root = FXMLLoader.load(MainApplication.class.getResource("view/BloodBank-view.fxml"));
                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     scene = new Scene(root);
                     stage.setTitle("Blood Bank Dashboard");

@@ -19,7 +19,7 @@
             <children>
             <FontAwesomeIconView glyphName="HOSPITAL_ALT" size="50">
                <VBox.margin>
-                  <Insets bottom="10.0" top="50.0" />
+                  <Insets bottom="10.0" top="40.0" />
                </VBox.margin>
             </FontAwesomeIconView>
                 <Label text="Hospital">

@@ -10,6 +10,7 @@ public class BloodRequest {
     private final StringProperty bloodType;
     private final StringProperty status;
     private final StringProperty quantity;
+    private final StringProperty hospitalID;
 
     public BloodRequest()
     {
@@ -19,6 +20,7 @@ public class BloodRequest {
         status = new SimpleStringProperty(this, "status");
         bloodType = new SimpleStringProperty(this, "bloodType");
         quantity = new SimpleStringProperty(this, "quantity");
+        hospitalID = new SimpleStringProperty(this, "hospital id");
 
     }
 
@@ -46,5 +48,9 @@ public class BloodRequest {
     public StringProperty bloodTypeProperty() { return bloodType; }
     public String getBloodType() { return bloodType.get(); }
     public void setBloodType(String newName) { bloodType.set(newName); }
+
+    public StringProperty hospitalIdProperty() { return hospitalID; }
+    public String getHospitalId() { return hospitalID.get(); }
+    public void setHospitalId(String newHospitalID) { hospitalID.set(newHospitalID); }
 
 }
