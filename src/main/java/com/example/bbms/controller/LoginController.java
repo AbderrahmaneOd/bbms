@@ -64,7 +64,13 @@ public class LoginController implements Initializable {
                     userPasswordVariable = resultSet.getString("password_h");
 
                 if (userPasswordVariable.equals(password.getText())) {
-                    root = FXMLLoader.load(MainApplication.class.getResource("view/Hospital-view.fxml"));
+                    FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("view/Hospital-view.fxml"));
+                    root = loader.load();
+
+                    HospitalController hospitalController = loader.getController();
+                    hospitalController.getHospitalUserId(userId.getText());
+
+                    //root = FXMLLoader.load(MainApplication.class.getResource("view/Hospital-view.fxml"));
                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     scene = new Scene(root);
                     stage.setTitle("Hospital Dashboard");

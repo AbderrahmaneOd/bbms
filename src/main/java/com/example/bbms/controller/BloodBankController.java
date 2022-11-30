@@ -39,8 +39,6 @@ public class BloodBankController implements Initializable {
     @FXML
     private Pane hospitalRequestPane;
 
-    @FXML
-    private Pane searchDonorsPane;
 
     // FXML Injection for Donor Functionality
     @FXML
@@ -145,11 +143,6 @@ public class BloodBankController implements Initializable {
     @FXML
     void btnHospitalRequest(ActionEvent event) {
         hospitalRequestPane.toFront();
-    }
-
-    @FXML
-    void btnSearchDonors(ActionEvent event) {
-        searchDonorsPane.toFront();
     }
 
     @FXML

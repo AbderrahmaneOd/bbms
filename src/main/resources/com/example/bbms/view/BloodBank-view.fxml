@@ -36,15 +36,7 @@
                 <Insets left="50.0" />
             </padding>
          <graphic>
-            <FontAwesomeIconView glyphName="PLUS_CIRCLE" size="17" />
-         </graphic>
-        </Button>
-        <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#btnSearchDonors" prefHeight="42.0" prefWidth="259.0" stylesheets="@../css/style.css" text="Search Donors">
-            <padding>
-                <Insets left="50.0" />
-            </padding>
-         <graphic>
-            <FontAwesomeIconView glyphName="SEARCH" size="18" />
+            <FontAwesomeIconView fill="GREY" glyphName="PLUS_CIRCLE" size="17" />
          </graphic>
         </Button>
         <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#btnStockManagement" prefHeight="42.0" prefWidth="259.0" stylesheets="@../css/style.css" text="Stock Management">
@@ -52,7 +44,7 @@
                 <Insets left="50.0" />
             </padding>
          <graphic>
-            <FontAwesomeIconView glyphName="COGS" size="17" />
+            <FontAwesomeIconView fill="GREY" glyphName="COGS" size="17" />
          </graphic>
         </Button>
         <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#btnHospitalRequest" prefHeight="42.0" prefWidth="259.0" stylesheets="@../css/style.css" text="Hospital Request">
@@ -60,7 +52,7 @@
                 <Insets left="50.0" />
             </padding>
          <graphic>
-            <FontAwesomeIconView glyphName="MAIL_REPLY_ALL" size="18" />
+            <FontAwesomeIconView fill="GREY" glyphName="MAIL_REPLY_ALL" size="18" />
          </graphic>
         </Button>
         <Button fx:id="btnLogOut" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#btnLogOut" prefHeight="42.0" prefWidth="259.0" stylesheets="@../css/style.css" text="Log Out">
@@ -68,10 +60,10 @@
                 <Insets left="50.0" />
             </padding>
          <graphic>
-            <FontAwesomeIconView glyphName="SIGN_OUT" size="18" />
+            <FontAwesomeIconView fill="GREY" glyphName="SIGN_OUT" size="18" />
          </graphic>
          <VBox.margin>
-            <Insets top="150.0" />
+            <Insets top="205.0" />
          </VBox.margin>
         </Button>
     </VBox>

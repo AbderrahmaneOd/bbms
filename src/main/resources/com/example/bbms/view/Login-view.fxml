@@ -41,25 +41,30 @@
          <center>
             <Pane prefHeight="200.0" prefWidth="258.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="136.0" layoutY="72.0" text="Sign in">
+                  <Label layoutX="135.0" layoutY="49.0" text="Sign in">
                      <font>
-                        <Font name="Copperplate Gothic Bold" size="18.0" />
+                        <Font name="Berlin Sans FB" size="25.0" />
                      </font></Label>
-                  <PasswordField fx:id="password" layoutX="106.0" layoutY="162.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: #9d9ba6; -fx-border-width: 0px 0px 2px 0px;" />
-                  <TextField fx:id="userId" layoutX="106.0" layoutY="122.0" promptText="User ID" style="-fx-background-color: transparent; -fx-border-color: #9d9ba6; -fx-border-width: 0px 0px 2px 0px;" />
-                  <Button layoutX="134.0" layoutY="292.0" mnemonicParsing="false" onAction="#signIn" style="-fx-background-color: #9d9ba6; -fx-background-radius: 12px;" text="Login">
+                  <PasswordField fx:id="password" layoutX="106.0" layoutY="175.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: #9d9ba6; -fx-border-width: 0px 0px 2px 0px;" />
+                  <TextField fx:id="userId" layoutX="106.0" layoutY="135.0" promptText="User ID" style="-fx-background-color: transparent; -fx-border-color: #9d9ba6; -fx-border-width: 0px 0px 2px 0px;" />
+                  <Button layoutX="134.0" layoutY="298.0" mnemonicParsing="false" onAction="#signIn" style="-fx-background-color: #9d9ba6; -fx-background-radius: 12px;" text="Login">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
                      <padding>
-                        <Insets bottom="6.0" left="20.0" right="20.0" top="6.0" />
+                        <Insets bottom="6.0" left="25.0" right="25.0" top="6.0" />
                      </padding>
                      <font>
                         <Font name="MS Reference Sans Serif" size="12.0" />
                      </font></Button>
-                  <ChoiceBox fx:id="userType" layoutX="97.0" layoutY="217.0" prefHeight="25.0" prefWidth="145.0" style="-fx-border-color: #9d9ba6; -fx-background-color: transparent; -fx-border-radius: 20px;" />
-                  <FontAwesomeIconView fill="#9d9ba6" glyphName="USER" layoutX="85.0" layoutY="144.0" size="15" />
-                  <FontAwesomeIconView fill="#9d9ba6" glyphName="LOCK" layoutX="86.0" layoutY="188.0" size="15" />
+                  <ChoiceBox fx:id="userType" layoutX="105.0" layoutY="227.0" prefHeight="25.0" prefWidth="145.0" style="-fx-border-color: #9d9ba6; -fx-background-color: transparent; -fx-border-radius: 20px;" />
+                  <FontAwesomeIconView fill="#9d9ba6" glyphName="USER" layoutX="85.0" layoutY="157.0" size="15" />
+                  <FontAwesomeIconView fill="#9d9ba6" glyphName="LOCK" layoutX="86.0" layoutY="201.0" size="15" />
+                  <Label layoutX="125.0" layoutY="89.0" text="Welcom to LifeBlood" textFill="GREY">
+                     <font>
+                        <Font name="Berlin Sans FB" size="11.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
          </center>
