@@ -103,6 +103,7 @@ public class BloodBankController implements Initializable {
     private TextField txtPriorityH;
     @FXML
     private TextField txtBloodTypeH;
+    
     @FXML
     private TextField txtHospitalIdH;
 
@@ -535,55 +536,6 @@ public class BloodBankController implements Initializable {
 
 
     // Function for Hospital Request functionality
-    @FXML
-    void addRequest(ActionEvent event) {
-
-        String status,priority,hospitalId,date,quantity, bloodType;
-        date = txtDateH.getText();
-        bloodType = txtBloodTypeH.getText();
-        quantity = txtQuantityH.getText();
-        status = txtStatusH.getText();
-        priority = txtPriorityH.getText();
-        hospitalId = txtHospitalIdH.getText();
-
-        try
-        {
-            pst = con.prepareStatement("INSERT INTO blood_request (date_request, bloodtype_request, quantity_request, status, priority, id_hospital) values (?,?,?,?,?,?)");
-            pst.setString(1, date);
-            pst.setString(2, bloodType);
-            pst.setString(3, quantity);
-            pst.setString(4, status);
-            pst.setString(5, priority);
-            pst.setString(6, hospitalId);
-            pst.executeUpdate();
-
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Donor Registration");
-
-
-            alert.setHeaderText("Donor Registration");
-            alert.setContentText("Record Added!");
-
-            alert.showAndWait();
-
-            tableHospitalRequest();
-
-            txtDateH.setText("");
-            txtBloodTypeH.setText("");
-            txtQuantityH.setText("");
-            txtStatusH.setText("");
-            txtPriorityH.setText("");
-            txtHospitalIdH.setText("");
-        }
-        catch (SQLException ex)
-        {
-            System.out.println("SQLException: " + ex.getMessage());
-            System.out.println("SQLState: " + ex.getSQLState());
-            System.out.println("VendorError: " + ex.getErrorCode());
-        }
-    }
-
-
     public void tableHospitalRequest()
     {
         Connect();
@@ -650,40 +602,9 @@ public class BloodBankController implements Initializable {
     }
 
     @FXML
-    void deleteRequest(ActionEvent event) {
-        myIndex = tableHospitalRequest.getSelectionModel().getSelectedIndex();
-
-        id = Integer.parseInt(String.valueOf(tableHospitalRequest.getItems().get(myIndex).getId()));
-
-
-        try
-        {
-            pst = con.prepareStatement("DELETE FROM blood_request WHERE id_request = ? ");
-            pst.setInt(1, id);
-            pst.executeUpdate();
-
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Hospital Request Registration");
-
-
-            alert.setHeaderText("Hospital Request Registration");
-            alert.setContentText("Deleted!");
-
-            alert.showAndWait();
-            tableHospitalRequest();
-        }
-        catch (SQLException ex)
-        {
-            System.out.println("SQLException: " + ex.getMessage());
-            System.out.println("SQLState: " + ex.getSQLState());
-            System.out.println("VendorError: " + ex.getErrorCode());
-        }
-    }
-
-    @FXML
     void updateRequest(ActionEvent event) {
 
-        String status,priority,hospitalId,date,quantity, bloodType;
+        String status,priority,date,quantity, bloodType;
 
         myIndex = tableHospitalRequest.getSelectionModel().getSelectedIndex();
 
@@ -694,17 +615,15 @@ public class BloodBankController implements Initializable {
         quantity = txtQuantityH.getText();
         status = txtStatusH.getText();
         priority = txtPriorityH.getText();
-        hospitalId = txtHospitalIdH.getText();
         try
         {
-            pst = con.prepareStatement("UPDATE blood_request SET date_request = ?, bloodtype_request = ?, quantity_request = ?, status = ?, priority = ?, id_hospital = ? WHERE id_request = ? ");
+            pst = con.prepareStatement("UPDATE blood_request SET date_request = ?, bloodtype_request = ?, quantity_request = ?, status = ?, priority = ? WHERE id_request = ? ");
             pst.setString(1, date);
             pst.setString(2, bloodType);
             pst.setString(3, quantity);
             pst.setString(4, status);
             pst.setString(5, priority);
-            pst.setString(6, hospitalId);
-            pst.setInt(7, id);
+            pst.setInt(6, id);
             pst.executeUpdate();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
