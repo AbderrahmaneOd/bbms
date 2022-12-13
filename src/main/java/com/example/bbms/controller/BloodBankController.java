@@ -590,7 +590,7 @@ public class BloodBankController implements Initializable {
         ObservableList<BloodRequest> requests = FXCollections.observableArrayList();
         try
         {
-            pst = con.prepareStatement("SELECT id_request, date_request, bloodtype_request, quantity_request, status, priority, id_hospital FROM blood_request");
+            pst = con.prepareStatement("SELECT id_request, date_request, bloodtype_request, quantity_request, status, priority, id_hospital, h.name_h FROM blood_request r, hospital h where r.id_hospital = h.id_h;");
             ResultSet rs = pst.executeQuery();
             {
                 while (rs.next())
@@ -602,7 +602,7 @@ public class BloodBankController implements Initializable {
                     st.setQuantity(rs.getString("quantity_request"));
                     st.setStatus(rs.getString("status"));
                     st.setPriority(rs.getString("priority"));
-                    st.setHospitalId(rs.getString("id_hospital"));
+                    st.setHospitalId(rs.getString("h.name_h"));
                     requests.add(st);
                 }
             }

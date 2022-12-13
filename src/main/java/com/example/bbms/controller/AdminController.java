@@ -215,6 +215,7 @@ public class AdminController implements Initializable{
     @FXML
     void btnStatistics(ActionEvent event) {
         StatisticsPane.toFront();
+        statistics();
     }
     @FXML
     void btnLogOut(ActionEvent event) throws IOException {
@@ -529,6 +530,7 @@ public class AdminController implements Initializable{
                 mediumB = resultSet.getInt("SUM(quantity_request)");
             resultSet = stmt.executeQuery("SELECT SUM(quantity_request) FROM blood_request WHERE bloodtype_request LIKE \"B_\" AND priority = \"high\"");
             if(resultSet.next())
+                highB = resultSet.getInt("SUM(quantity_request)");
 
             // Low, Medium and High for AB
             resultSet = stmt.executeQuery("SELECT SUM(quantity_request) FROM blood_request WHERE bloodtype_request LIKE \"AB_\" AND priority = \"low\"");

@@ -112,9 +112,9 @@ public class LoginController implements Initializable {
                 System.out.println("SQLState: " + ex.getSQLState());
                 System.out.println("VendorError: " + ex.getErrorCode());
             }
-
+            // userName : 1 and password : admin for admin password
         }else if(userType.getValue().equals("Admin")){
-            if(userId.getText().equals("1") && password.getText().equals("a")){
+            if(userId.getText().equals("1") && password.getText().equals("admin")){
                 root = FXMLLoader.load(MainApplication.class.getResource("view/Admin-view.fxml"));
                 stage = (Stage)((Node)event.getSource()).getScene().getWindow();
                 scene = new Scene(root);

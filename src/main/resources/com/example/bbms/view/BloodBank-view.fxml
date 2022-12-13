@@ -86,11 +86,11 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <TableView fx:id="tableStock" layoutX="34.0" layoutY="248.0" prefHeight="254.0" prefWidth="675.0" style="-fx-border-color: LightSlateGray; -fx-border-radius: 5px;">
+            <TableView fx:id="tableStock" layoutX="150.0" layoutY="241.0" prefHeight="260.0" prefWidth="510.0" style="-fx-border-color: LightSlateGray; -fx-border-radius: 5px;">
                <columns>
-                  <TableColumn fx:id="IDColmnStock" prefWidth="149.99993896484375" text="ID" />
-                  <TableColumn fx:id="QuantityColmnStock" prefWidth="267.3333435058594" text="Quantity" />
-                  <TableColumn fx:id="BloodTypeColmnStock" prefWidth="255.0" text="Blood Type" />
+                  <TableColumn fx:id="IDColmnStock" prefWidth="50.0" text="ID" />
+                  <TableColumn fx:id="QuantityColmnStock" prefWidth="232.66668701171875" text="Quantity" />
+                  <TableColumn fx:id="BloodTypeColmnStock" prefWidth="224.66668701171875" text="Blood Type" />
                </columns>
             </TableView>
          </children>
@@ -123,13 +123,13 @@
             </Label>
             <TableView fx:id="tableHospitalRequest" layoutX="16.0" layoutY="265.0" prefHeight="251.0" prefWidth="711.0" style="-fx-border-color: LightSlateGray; -fx-border-radius: 5px;">
                <columns>
-                  <TableColumn fx:id="IDColmnH" prefWidth="75.99995422363281" text="ID" />
-                  <TableColumn fx:id="DateColmnH" prefWidth="164.66668701171875" text="Date" />
-                  <TableColumn fx:id="QuantityColmnH" prefWidth="84.66668701171875" text="Quantity" />
-                  <TableColumn fx:id="StatusColmnH" minWidth="0.0" prefWidth="106.0" text="Status" />
-                  <TableColumn fx:id="PriorityColmnH" prefWidth="110.0" text="Priority" />
-                  <TableColumn fx:id="BloodTypeColmnH" prefWidth="80.66668701171875" text="Blood Type" />
-                  <TableColumn fx:id="HospitalIdColmnH" prefWidth="90.6666259765625" text="Hospital ID" />
+                  <TableColumn fx:id="IDColmnH" prefWidth="40.0" text="ID" />
+                  <TableColumn fx:id="DateColmnH" prefWidth="149.33331298828125" text="Date" />
+                  <TableColumn fx:id="QuantityColmnH" prefWidth="74.00003051757812" text="Quantity" />
+                  <TableColumn fx:id="StatusColmnH" minWidth="0.0" prefWidth="91.33334350585938" text="Status" />
+                  <TableColumn fx:id="PriorityColmnH" prefWidth="105.99993896484375" text="Priority" />
+                  <TableColumn fx:id="BloodTypeColmnH" prefWidth="86.6666259765625" text="Blood Type" />
+                  <TableColumn fx:id="HospitalIdColmnH" prefWidth="170.66668701171875" text="Hospital Name" />
                </columns>
             </TableView>
          </children>

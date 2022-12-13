@@ -98,39 +98,6 @@
       </Button>
    </VBox>
    <StackPane layoutX="222.0" prefHeight="530.0" prefWidth="741.0" style="-fx-background-color: #02030A;">
-      <Pane fx:id="hospitalsPane" prefHeight="514.0" prefWidth="778.0" style="-fx-background-color: #ffffff;">
-         <children>
-            <Pane layoutX="52.0" layoutY="78.0" prefHeight="164.0" prefWidth="643.0" style="-fx-background-color: #EDE4F1; -fx-border-color: black; -fx-border-radius: 10px;">
-               <children>
-                  <Label layoutX="61.0" layoutY="31.0" text="Name" />
-                  <Label layoutX="59.0" layoutY="67.0" text="Address" />
-                  <Label layoutX="355.0" layoutY="63.0" text="Password" />
-                  <TextField fx:id="txtNameH" layoutX="150.0" layoutY="27.0" />
-                  <TextField fx:id="txtAddressH" layoutX="149.0" layoutY="63.0" />
-                  <TextField fx:id="txtPasswordH" layoutX="426.0" layoutY="60.0" />
-                  <Button layoutX="472.0" layoutY="119.0" mnemonicParsing="false" onAction="#addH" text="Add" />
-                  <Button layoutX="577.0" layoutY="119.0" mnemonicParsing="false" onAction="#deleteH" text="Delete" />
-                  <Button layoutX="517.0" layoutY="119.0" mnemonicParsing="false" onAction="#updateH" text="Update" />
-                  <Label layoutX="360.0" layoutY="31.0" text="Email" />
-                  <TextField fx:id="txtEmailH" layoutX="425.0" layoutY="27.0" />
-               </children>
-            </Pane>
-            <Label layoutX="22.0" layoutY="16.0" stylesheets="@../css/style.css" text="Hospitals">
-               <font>
-                  <Font name="Arial Rounded MT Bold" size="22.0" />
-               </font>
-            </Label>
-            <TableView fx:id="tableHospital" layoutX="19.0" layoutY="271.0" prefHeight="242.0" prefWidth="711.0" style="-fx-border-radius: 5px; -fx-border-color: LightSlateGray;">
-               <columns>
-                  <TableColumn fx:id="IDColmnH" prefWidth="116.6666259765625" text="ID" />
-                  <TableColumn fx:id="NameColmnH" prefWidth="154.4444580078125" text="Name" />
-                  <TableColumn fx:id="AddressColmnH" prefWidth="176.22216796875" text="Address" />
-                  <TableColumn fx:id="EmailColmnH" minWidth="0.0" prefWidth="142.00006103515625" text="Email" />
-                  <TableColumn fx:id="PasswordColmnH" prefWidth="126.6666259765625" text="Password" />
-               </columns>
-            </TableView>
-         </children>
-      </Pane>
       <Pane fx:id="campsPane" prefHeight="514.0" prefWidth="778.0" style="-fx-background-color: #ffffff;">
          <children>
             <Pane layoutX="52.0" layoutY="78.0" prefHeight="164.0" prefWidth="643.0" style="-fx-background-color: #EDE4F1; -fx-border-radius: 10px; -fx-border-color: black;">
@@ -159,7 +126,7 @@
             </Label>
             <TableView fx:id="tableCamp" layoutX="19.0" layoutY="271.0" prefHeight="242.0" prefWidth="711.0" style="-fx-border-radius: 5px; -fx-border-color: LightSlateGray;">
                <columns>
-                  <TableColumn fx:id="IDColmnC" prefWidth="41.11112976074219" text="ID" />
+                  <TableColumn fx:id="IDColmnC" prefWidth="40.0" text="ID" />
                   <TableColumn fx:id="NameColmnC" prefWidth="88.888916015625" text="Name" />
                   <TableColumn fx:id="AddressColmnC" prefWidth="107.33331298828125" text="Address" />
                   <TableColumn fx:id="PhoneColmnC" minWidth="0.0" prefWidth="121.33334350585938" text="Phone" />
@@ -234,6 +201,39 @@
             </Pane>
          </children>
       </Pane>
+      <Pane fx:id="hospitalsPane" prefHeight="514.0" prefWidth="778.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <Pane layoutX="52.0" layoutY="78.0" prefHeight="164.0" prefWidth="643.0" style="-fx-background-color: #EDE4F1; -fx-border-color: black; -fx-border-radius: 10px;">
+               <children>
+                  <Label layoutX="61.0" layoutY="31.0" text="Name" />
+                  <Label layoutX="59.0" layoutY="67.0" text="Address" />
+                  <Label layoutX="355.0" layoutY="63.0" text="Password" />
+                  <TextField fx:id="txtNameH" layoutX="150.0" layoutY="27.0" />
+                  <TextField fx:id="txtAddressH" layoutX="149.0" layoutY="63.0" />
+                  <TextField fx:id="txtPasswordH" layoutX="426.0" layoutY="60.0" />
+                  <Button layoutX="472.0" layoutY="119.0" mnemonicParsing="false" onAction="#addH" text="Add" />
+                  <Button layoutX="577.0" layoutY="119.0" mnemonicParsing="false" onAction="#deleteH" text="Delete" />
+                  <Button layoutX="517.0" layoutY="119.0" mnemonicParsing="false" onAction="#updateH" text="Update" />
+                  <Label layoutX="360.0" layoutY="31.0" text="Email" />
+                  <TextField fx:id="txtEmailH" layoutX="425.0" layoutY="27.0" />
+               </children>
+            </Pane>
+            <Label layoutX="22.0" layoutY="16.0" stylesheets="@../css/style.css" text="Hospitals">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="22.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tableHospital" layoutX="19.0" layoutY="271.0" prefHeight="242.0" prefWidth="711.0" style="-fx-border-radius: 5px; -fx-border-color: LightSlateGray;">
+               <columns>
+                  <TableColumn fx:id="IDColmnH" prefWidth="40.0" text="ID" />
+                  <TableColumn fx:id="NameColmnH" prefWidth="154.4444580078125" text="Name" />
+                  <TableColumn fx:id="AddressColmnH" prefWidth="285.3334045410156" text="Address" />
+                  <TableColumn fx:id="EmailColmnH" minWidth="0.0" prefWidth="150.6666259765625" text="Email" />
+                  <TableColumn fx:id="PasswordColmnH" prefWidth="79.6666259765625" text="Password" />
+               </columns>
+            </TableView>
+         </children>
+      </Pane>
       <Pane fx:id="donorsPane" prefHeight="514.0" prefWidth="778.0" style="-fx-background-color: #ffffff;">
          <children>
             <Pane layoutX="52.0" layoutY="78.0" prefHeight="164.0" prefWidth="643.0" style="-fx-background-color: #EDE4F1; -fx-border-color: black; -fx-border-radius: 10px;">
@@ -260,12 +260,12 @@
             </Label>
             <TableView fx:id="tableDonor" layoutX="19.0" layoutY="271.0" prefHeight="242.0" prefWidth="711.0" style="-fx-border-color: LightSlateGray; -fx-border-radius: 5px;">
                <columns>
-                  <TableColumn fx:id="IDColmnD" prefWidth="46.66667175292969" text="ID" />
+                  <TableColumn fx:id="IDColmnD" prefWidth="40.0" text="ID" />
                   <TableColumn fx:id="FullNameColmnD" prefWidth="91.33331298828125" text="Full Name" />
-                  <TableColumn fx:id="AddressColmnD" prefWidth="180.0" text="Address" />
-                  <TableColumn fx:id="EmailColmnD" minWidth="0.0" prefWidth="132.0" text="Email" />
-                  <TableColumn fx:id="PhoneColmnD" prefWidth="165.33331298828125" text="Phone" />
-                  <TableColumn fx:id="BloodTypeColmnD" prefWidth="98.00006103515625" text="Blood Type" />
+                  <TableColumn fx:id="AddressColmnD" prefWidth="235.33343505859375" text="Address" />
+                  <TableColumn fx:id="EmailColmnD" minWidth="0.0" prefWidth="147.99993896484375" text="Email" />
+                  <TableColumn fx:id="PhoneColmnD" prefWidth="123.33331298828125" text="Phone" />
+                  <TableColumn fx:id="BloodTypeColmnD" prefWidth="70.6666259765625" text="Blood Type" />
                </columns>
             </TableView>
          </children>
@@ -291,11 +291,11 @@
          </Label>
          <TableView fx:id="tableBloodBank" layoutX="19.0" layoutY="271.0" prefHeight="242.0" prefWidth="711.0" style="-fx-border-color: LightSlateGray; -fx-border-radius: 5px;">
             <columns>
-               <TableColumn fx:id="IDColmn" prefWidth="116.6666259765625" text="ID" />
-               <TableColumn fx:id="NameColmn" prefWidth="154.4444580078125" text="Name" />
-               <TableColumn fx:id="AddressColmn" prefWidth="176.22216796875" text="Address" />
-               <TableColumn fx:id="EmailColmn" minWidth="0.0" prefWidth="142.00006103515625" text="Email" />
-               <TableColumn fx:id="PasswordColmn" prefWidth="126.6666259765625" text="Password" />
+               <TableColumn fx:id="IDColmn" prefWidth="40.0" text="ID" />
+               <TableColumn fx:id="NameColmn" prefWidth="196.0" text="Name" />
+               <TableColumn fx:id="AddressColmn" prefWidth="238.66671752929688" text="Address" />
+               <TableColumn fx:id="EmailColmn" minWidth="0.0" prefWidth="153.33331298828125" text="Email" />
+               <TableColumn fx:id="PasswordColmn" prefWidth="80.66668701171875" text="Password" />
             </columns>
          </TableView>
       </Pane>

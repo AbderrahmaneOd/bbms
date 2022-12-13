@@ -91,12 +91,12 @@
                         </Label>
                         <TableView fx:id="tableHospitalRequest" layoutX="16.0" layoutY="265.0" prefHeight="251.0" prefWidth="711.0" style="-fx-border-color: LightSlateGray; -fx-border-radius: 5px;">
                             <columns>
-                                <TableColumn fx:id="IDColmnH" prefWidth="75.99995422363281" text="ID" />
-                                <TableColumn fx:id="DateColmnH" prefWidth="164.66668701171875" text="Date" />
-                                <TableColumn fx:id="QuantityColmnH" prefWidth="109.3333740234375" text="Quantity" />
-                                <TableColumn fx:id="StatusColmnH" minWidth="0.0" prefWidth="102.66668701171875" text="Status" />
-                                <TableColumn fx:id="PriorityColmnH" prefWidth="150.66668701171875" text="Priority" />
-                                <TableColumn fx:id="BloodTypeColmnH" prefWidth="105.3333740234375" text="Blood Type" />
+                                <TableColumn fx:id="IDColmnH" prefWidth="78.0" text="ID" />
+                                <TableColumn fx:id="DateColmnH" prefWidth="204.0" text="Date" />
+                                <TableColumn fx:id="QuantityColmnH" prefWidth="124.66668701171875" text="Quantity" />
+                                <TableColumn fx:id="StatusColmnH" minWidth="0.0" prefWidth="90.0" text="Status" />
+                                <TableColumn fx:id="PriorityColmnH" prefWidth="122.0" text="Priority" />
+                                <TableColumn fx:id="BloodTypeColmnH" prefWidth="98.0" text="Blood Type" />
                             </columns>
                         </TableView>
                     </children>
@@ -119,11 +119,11 @@
                                 <Font size="24.0" />
                             </font>
                         </Label>
-                        <TableView fx:id="tableStock" layoutX="34.0" layoutY="248.0" prefHeight="254.0" prefWidth="675.0" style="-fx-border-color: LightSlateGray; -fx-border-radius: 5px;">
+                        <TableView fx:id="tableStock" layoutX="116.0" layoutY="231.0" prefHeight="260.0" prefWidth="510.0" style="-fx-border-color: LightSlateGray; -fx-border-radius: 5px;">
                             <columns>
-                                <TableColumn fx:id="IDColmnStock" prefWidth="77.33331298828125" text="ID" />
-                                <TableColumn fx:id="QuantityColmnStock" prefWidth="180.66668701171875" text="Blood Quantity" />
-                                <TableColumn fx:id="BloodTypeColmnStock" prefWidth="416.0" text="Blood Type" />
+                                <TableColumn fx:id="IDColmnStock" prefWidth="42.00006103515625" text="ID" />
+                                <TableColumn fx:id="QuantityColmnStock" prefWidth="245.33340454101562" text="Blood Quantity" />
+                                <TableColumn fx:id="BloodTypeColmnStock" prefWidth="219.99993896484375" text="Blood Type" />
                             </columns>
                         </TableView>
                     </children>
