@@ -68,67 +68,6 @@
         </Button>
     </VBox>
     <StackPane layoutX="222.0" prefHeight="530.0" prefWidth="741.0" style="-fx-background-color: #02030A;">
-      <Pane fx:id="stockManagementPane" prefHeight="514.0" prefWidth="778.0" style="-fx-background-color: #ffffff;">
-         <children>
-            <Pane layoutX="49.0" layoutY="79.0" prefHeight="111.0" prefWidth="643.0" style="-fx-background-color: #EDE4F1; -fx-border-color: black; -fx-border-radius: 10px;">
-               <children>
-                  <Label layoutX="314.0" layoutY="28.0" text="Blood Type" />
-                  <TextField fx:id="txtBloodTypeStock" layoutX="385.0" layoutY="25.0" />
-                  <Button layoutX="472.0" layoutY="78.0" mnemonicParsing="false" onAction="#addStock" text="Add" />
-                  <Button layoutX="577.0" layoutY="78.0" mnemonicParsing="false" onAction="#deleteStock" text="Delete" />
-                  <Button layoutX="517.0" layoutY="78.0" mnemonicParsing="false" onAction="#updateStock" text="Update" />
-                  <TextField fx:id="txtQuantityStock" layoutX="126.0" layoutY="23.0" />
-                  <Label layoutX="63.0" layoutY="26.0" text="Quantity" />
-               </children>
-            </Pane>
-            <Label layoutX="22.0" layoutY="16.0" text="Stock Management">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <TableView fx:id="tableStock" layoutX="150.0" layoutY="241.0" prefHeight="260.0" prefWidth="510.0" style="-fx-border-color: LightSlateGray; -fx-border-radius: 5px;">
-               <columns>
-                  <TableColumn fx:id="IDColmnStock" prefWidth="50.0" text="ID" />
-                  <TableColumn fx:id="QuantityColmnStock" prefWidth="232.66668701171875" text="Quantity" />
-                  <TableColumn fx:id="BloodTypeColmnStock" prefWidth="224.66668701171875" text="Blood Type" />
-               </columns>
-            </TableView>
-         </children>
-      </Pane>
-        <Pane fx:id="addDonorsPane" prefHeight="514.0" prefWidth="778.0" style="-fx-background-color: #ffffff;">
-         <Pane layoutX="49.0" layoutY="79.0" prefHeight="164.0" prefWidth="643.0" style="-fx-background-color: #EDE4F1; -fx-border-color: black; -fx-border-radius: 10px;">
-            <children>
-               <Label layoutX="80.0" layoutY="17.0" text="Full Name" />
-               <Label layoutX="360.0" layoutY="45.0" text="Blood Type" />
-               <TextField fx:id="txtFullNameD" layoutX="150.0" layoutY="11.0" />
-               <TextField fx:id="txtPhoneD" layoutX="150.0" layoutY="79.0" />
-               <TextField fx:id="txtBloodTypeD" layoutX="431.0" layoutY="42.0" />
-               <Button layoutX="472.0" layoutY="130.0" mnemonicParsing="false" onAction="#addDonor" text="Add" />
-               <Button layoutX="577.0" layoutY="130.0" mnemonicParsing="false" onAction="#deleteDonor" text="Delete" />
-               <Button layoutX="517.0" layoutY="130.0" mnemonicParsing="false" onAction="#updateDonor" text="Update" />
-               <Label layoutX="371.0" layoutY="13.0" text="Email" />
-               <TextField fx:id="txtEmailD" layoutX="430.0" layoutY="9.0" />
-               <Label layoutX="89.0" layoutY="81.0" text="Phone" />
-               <TextField fx:id="txtAddressD" layoutX="150.0" layoutY="46.0" />
-               <Label layoutX="87.0" layoutY="49.0" text="Address" />
-            </children>
-         </Pane>
-            <Label layoutX="22.0" layoutY="16.0" text="Add Donors">
-                <font>
-                    <Font size="24.0" />
-                </font>
-            </Label>
-         <TableView fx:id="tableDonor" layoutX="16.0" layoutY="265.0" prefHeight="251.0" prefWidth="711.0" style="-fx-border-color: LightSlateGray; -fx-border-radius: 5px;">
-            <columns>
-               <TableColumn fx:id="IDColmnD" prefWidth="46.66667175292969" text="ID" />
-               <TableColumn fx:id="FullNameColmnD" prefWidth="91.33331298828125" text="Full Name" />
-               <TableColumn fx:id="AddressColmnD" prefWidth="180.0" text="Address" />
-               <TableColumn fx:id="EmailColmnD" minWidth="0.0" prefWidth="132.0" text="Email" />
-               <TableColumn fx:id="PhoneColmnD" prefWidth="165.33331298828125" text="Phone" />
-               <TableColumn fx:id="BloodTypeColmnD" prefWidth="98.00006103515625" text="Blood Type" />
-            </columns>
-         </TableView>
-        </Pane>
       <Pane fx:id="hospitalRequestPane" prefHeight="514.0" prefWidth="778.0" style="-fx-background-color: #ffffff;">
          <children>
             <Pane layoutX="49.0" layoutY="79.0" prefHeight="164.0" prefWidth="643.0" style="-fx-background-color: #EDE4F1; -fx-border-color: black; -fx-border-radius: 10px;">
@@ -162,6 +101,67 @@
                   <TableColumn fx:id="PriorityColmnH" prefWidth="105.99993896484375" text="Priority" />
                   <TableColumn fx:id="BloodTypeColmnH" prefWidth="86.6666259765625" text="Blood Type" />
                   <TableColumn fx:id="HospitalIdColmnH" prefWidth="170.66668701171875" text="Hospital Name" />
+               </columns>
+            </TableView>
+         </children>
+      </Pane>
+        <Pane fx:id="addDonorsPane" prefHeight="514.0" prefWidth="778.0" style="-fx-background-color: #ffffff;">
+         <Pane layoutX="49.0" layoutY="79.0" prefHeight="164.0" prefWidth="643.0" style="-fx-background-color: #EDE4F1; -fx-border-color: black; -fx-border-radius: 10px;">
+            <children>
+               <Label layoutX="80.0" layoutY="17.0" text="Full Name" />
+               <Label layoutX="360.0" layoutY="45.0" text="Blood Type" />
+               <TextField fx:id="txtFullNameD" layoutX="150.0" layoutY="11.0" />
+               <TextField fx:id="txtPhoneD" layoutX="150.0" layoutY="79.0" />
+               <TextField fx:id="txtBloodTypeD" layoutX="431.0" layoutY="42.0" />
+               <Button layoutX="472.0" layoutY="130.0" mnemonicParsing="false" onAction="#addDonor" text="Add" />
+               <Button layoutX="577.0" layoutY="130.0" mnemonicParsing="false" onAction="#deleteDonor" text="Delete" />
+               <Button layoutX="517.0" layoutY="130.0" mnemonicParsing="false" onAction="#updateDonor" text="Update" />
+               <Label layoutX="371.0" layoutY="13.0" text="Email" />
+               <TextField fx:id="txtEmailD" layoutX="430.0" layoutY="9.0" />
+               <Label layoutX="89.0" layoutY="81.0" text="Phone" />
+               <TextField fx:id="txtAddressD" layoutX="150.0" layoutY="46.0" />
+               <Label layoutX="87.0" layoutY="49.0" text="Address" />
+            </children>
+         </Pane>
+            <Label layoutX="22.0" layoutY="16.0" text="Add Donors">
+                <font>
+                    <Font size="24.0" />
+                </font>
+            </Label>
+         <TableView fx:id="tableDonor" layoutX="16.0" layoutY="265.0" prefHeight="251.0" prefWidth="711.0" style="-fx-border-color: LightSlateGray; -fx-border-radius: 5px;">
+            <columns>
+               <TableColumn fx:id="IDColmnD" prefWidth="46.66667175292969" text="ID" />
+               <TableColumn fx:id="FullNameColmnD" prefWidth="91.33331298828125" text="Full Name" />
+               <TableColumn fx:id="AddressColmnD" prefWidth="202.66671752929688" text="Address" />
+               <TableColumn fx:id="EmailColmnD" minWidth="0.0" prefWidth="151.33331298828125" text="Email" />
+               <TableColumn fx:id="PhoneColmnD" prefWidth="134.66668701171875" text="Phone" />
+               <TableColumn fx:id="BloodTypeColmnD" prefWidth="88.6666259765625" text="Blood Type" />
+            </columns>
+         </TableView>
+        </Pane>
+      <Pane fx:id="stockManagementPane" prefHeight="514.0" prefWidth="778.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <Pane layoutX="49.0" layoutY="79.0" prefHeight="111.0" prefWidth="643.0" style="-fx-background-color: #EDE4F1; -fx-border-color: black; -fx-border-radius: 10px;">
+               <children>
+                  <Label layoutX="314.0" layoutY="28.0" text="Blood Type" />
+                  <TextField fx:id="txtBloodTypeStock" layoutX="385.0" layoutY="25.0" />
+                  <Button layoutX="472.0" layoutY="78.0" mnemonicParsing="false" onAction="#addStock" text="Add" />
+                  <Button layoutX="577.0" layoutY="78.0" mnemonicParsing="false" onAction="#deleteStock" text="Delete" />
+                  <Button layoutX="517.0" layoutY="78.0" mnemonicParsing="false" onAction="#updateStock" text="Update" />
+                  <TextField fx:id="txtQuantityStock" layoutX="126.0" layoutY="23.0" />
+                  <Label layoutX="63.0" layoutY="26.0" text="Quantity" />
+               </children>
+            </Pane>
+            <Label layoutX="22.0" layoutY="16.0" text="Stock Management">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tableStock" layoutX="104.0" layoutY="233.0" prefHeight="260.0" prefWidth="510.0" style="-fx-border-color: LightSlateGray; -fx-border-radius: 5px;">
+               <columns>
+                  <TableColumn fx:id="IDColmnStock" prefWidth="50.0" text="ID" />
+                  <TableColumn fx:id="QuantityColmnStock" prefWidth="232.66668701171875" text="Quantity" />
+                  <TableColumn fx:id="BloodTypeColmnStock" prefWidth="224.66668701171875" text="Blood Type" />
                </columns>
             </TableView>
          </children>

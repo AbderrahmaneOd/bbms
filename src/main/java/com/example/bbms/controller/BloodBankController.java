@@ -103,7 +103,6 @@ public class BloodBankController implements Initializable {
     private TextField txtPriorityH;
     @FXML
     private TextField txtBloodTypeH;
-    
     @FXML
     private TextField txtHospitalIdH;
 
@@ -617,13 +616,9 @@ public class BloodBankController implements Initializable {
         priority = txtPriorityH.getText();
         try
         {
-            pst = con.prepareStatement("UPDATE blood_request SET date_request = ?, bloodtype_request = ?, quantity_request = ?, status = ?, priority = ? WHERE id_request = ? ");
-            pst.setString(1, date);
-            pst.setString(2, bloodType);
-            pst.setString(3, quantity);
-            pst.setString(4, status);
-            pst.setString(5, priority);
-            pst.setInt(6, id);
+            pst = con.prepareStatement("UPDATE blood_request SET status = ? WHERE id_request = ? ");
+            pst.setString(1, status);
+            pst.setInt(2, id);
             pst.executeUpdate();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
