@@ -130,8 +130,11 @@ public class BloodBankController implements Initializable {
     // Blood Bank User ID
     @FXML
     private String bloodBankUserId;
+    @FXML
+    private Label bloodBankID;
     public void getBloodBankUserId(String userId){
         bloodBankUserId = userId;
+        bloodBankID.setText("ID : " + bloodBankUserId);
     }
 
     // Function for Menu

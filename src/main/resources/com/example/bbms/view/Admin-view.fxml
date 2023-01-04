@@ -51,7 +51,7 @@
             <FontAwesomeIconView fill="GREY" glyphName="BANK" size="17" />
          </graphic>
       </Button>
-      <Button fx:id="btnHospitals" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#btnHospitals" prefHeight="42.0" prefWidth="259.0" stylesheets="@../css/style.css" text="Hospitals">
+      <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#btnHospitals" prefHeight="42.0" prefWidth="259.0" stylesheets="@../css/style.css" text="Hospitals">
          <padding>
             <Insets left="50.0" />
          </padding>
@@ -98,41 +98,95 @@
       </Button>
    </VBox>
    <StackPane layoutX="222.0" prefHeight="530.0" prefWidth="741.0" style="-fx-background-color: #02030A;">
-      <Pane fx:id="campsPane" prefHeight="514.0" prefWidth="778.0" style="-fx-background-color: #ffffff;">
+      <Pane fx:id="donorsPane" prefHeight="514.0" prefWidth="778.0" style="-fx-background-color: #ffffff;">
          <children>
-            <Pane layoutX="52.0" layoutY="78.0" prefHeight="164.0" prefWidth="643.0" style="-fx-background-color: #EDE4F1; -fx-border-radius: 10px; -fx-border-color: black;">
+            <Pane layoutX="52.0" layoutY="78.0" prefHeight="164.0" prefWidth="643.0" style="-fx-background-color: #EDE4F1; -fx-border-color: black; -fx-border-radius: 10px;">
                <children>
-                  <Label layoutX="72.0" layoutY="23.0" text="Name" />
-                  <Label layoutX="70.0" layoutY="57.0" text="Address" />
-                  <Label layoutX="345.0" layoutY="52.0" text="Organized By" />
-                  <TextField fx:id="txtNameC" layoutX="150.0" layoutY="16.0" />
-                  <TextField fx:id="txtAddressC" layoutX="149.0" layoutY="52.0" />
-                  <TextField fx:id="txtOrganizedByC" layoutX="426.0" layoutY="48.0" />
-                  <Button layoutX="472.0" layoutY="127.0" mnemonicParsing="false" onAction="#addC" text="Add" />
-                  <Button layoutX="577.0" layoutY="126.0" mnemonicParsing="false" onAction="#deleteC" text="Delete" />
-                  <Button layoutX="517.0" layoutY="128.0" mnemonicParsing="false" onAction="#updateC" text="Update" />
-                  <Label layoutX="360.0" layoutY="21.0" text="Phone" />
-                  <TextField fx:id="txtPhoneC" layoutX="425.0" layoutY="11.0" />
-                  <TextField fx:id="txtStartDateC" layoutX="150.0" layoutY="85.0" />
-                  <TextField fx:id="txtEndDateC" layoutX="426.0" layoutY="83.0" />
-                  <Label layoutX="66.0" layoutY="89.0" text="Start Date" />
-                  <Label layoutX="358.0" layoutY="87.0" text="End Date" />
+                  <Label layoutX="80.0" layoutY="17.0" text="Full Name" />
+                  <Label layoutX="360.0" layoutY="45.0" text="Blood Type" />
+                  <TextField fx:id="txtFullNameD" layoutX="150.0" layoutY="11.0" />
+                  <TextField fx:id="txtPhoneD" layoutX="150.0" layoutY="79.0" />
+                  <TextField fx:id="txtBloodTypeD" layoutX="431.0" layoutY="42.0" />
+                  <Label layoutX="371.0" layoutY="13.0" text="Email" />
+                  <TextField fx:id="txtEmailD" layoutX="430.0" layoutY="9.0" />
+                  <Label layoutX="89.0" layoutY="81.0" text="Phone" />
+                  <TextField fx:id="txtAddressD" layoutX="150.0" layoutY="46.0" />
+                  <Label layoutX="87.0" layoutY="49.0" text="Address" />
+                  <Button layoutX="476.0" layoutY="125.0" mnemonicParsing="false" onAction="#addD" style="-fx-border-style: solid; -fx-border-color: #212121; -fx-border-width: 1px; -fx-background-color: #fff; -fx-border-radius: 2px;" text="Add">
+                     <font>
+                        <Font name="SimSun-ExtB" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="574.0" layoutY="125.0" mnemonicParsing="false" onAction="#deleteD" style="-fx-border-radius: 2px; -fx-border-style: solid; -fx-border-color: #212121; -fx-background-color: #fff; -fx-border-width: 1px;" text="Delete">
+                     <font>
+                        <Font name="SimSun-ExtB" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="516.0" layoutY="125.0" mnemonicParsing="false" onAction="#updateD" style="-fx-border-radius: 2px; -fx-border-style: solid; -fx-border-color: #212121; -fx-background-color: #fff; -fx-border-width: 1px;" text="Update">
+                     <font>
+                        <Font name="SimSun-ExtB" size="12.0" />
+                     </font>
+                  </Button>
                </children>
             </Pane>
-            <Label layoutX="22.0" layoutY="16.0" stylesheets="@../css/style.css" text="Camps">
+            <Label layoutX="22.0" layoutY="16.0" stylesheets="@../css/style.css" text="Donors">
                <font>
                   <Font name="Arial Rounded MT Bold" size="22.0" />
                </font>
             </Label>
-            <TableView fx:id="tableCamp" layoutX="19.0" layoutY="271.0" prefHeight="242.0" prefWidth="711.0" style="-fx-border-radius: 5px; -fx-border-color: LightSlateGray;">
+            <TableView fx:id="tableDonor" layoutX="19.0" layoutY="271.0" prefHeight="242.0" prefWidth="711.0" style="-fx-border-color: LightSlateGray; -fx-border-radius: 5px;">
                <columns>
-                  <TableColumn fx:id="IDColmnC" prefWidth="40.0" text="ID" />
-                  <TableColumn fx:id="NameColmnC" prefWidth="88.888916015625" text="Name" />
-                  <TableColumn fx:id="AddressColmnC" prefWidth="107.33331298828125" text="Address" />
-                  <TableColumn fx:id="PhoneColmnC" minWidth="0.0" prefWidth="121.33334350585938" text="Phone" />
-                  <TableColumn fx:id="OrganizedByColmnC" prefWidth="131.111083984375" text="Organized By" />
-                  <TableColumn fx:id="StartDateColmnC" minWidth="0.0" prefWidth="119.5555419921875" text="Start Date" />
-                  <TableColumn fx:id="EndDateColmnC" prefWidth="100.88885498046875" text="End Date" />
+                  <TableColumn fx:id="IDColmnD" prefWidth="40.0" text="ID" />
+                  <TableColumn fx:id="FullNameColmnD" prefWidth="91.33331298828125" text="Full Name" />
+                  <TableColumn fx:id="AddressColmnD" prefWidth="235.33343505859375" text="Address" />
+                  <TableColumn fx:id="EmailColmnD" minWidth="0.0" prefWidth="147.99993896484375" text="Email" />
+                  <TableColumn fx:id="PhoneColmnD" prefWidth="123.33331298828125" text="Phone" />
+                  <TableColumn fx:id="BloodTypeColmnD" prefWidth="70.6666259765625" text="Blood Type" />
+               </columns>
+            </TableView>
+         </children>
+      </Pane>
+      <Pane fx:id="hospitalsPane" prefHeight="514.0" prefWidth="778.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <Pane layoutX="52.0" layoutY="78.0" prefHeight="164.0" prefWidth="643.0" style="-fx-background-color: #EDE4F1; -fx-border-color: black; -fx-border-radius: 10px;">
+               <children>
+                  <Label layoutX="61.0" layoutY="31.0" text="Name" />
+                  <Label layoutX="59.0" layoutY="67.0" text="Address" />
+                  <Label layoutX="355.0" layoutY="63.0" text="Password" />
+                  <TextField fx:id="txtNameH" layoutX="150.0" layoutY="27.0" />
+                  <TextField fx:id="txtAddressH" layoutX="149.0" layoutY="63.0" />
+                  <TextField fx:id="txtPasswordH" layoutX="426.0" layoutY="60.0" />
+                  <Label layoutX="360.0" layoutY="31.0" text="Email" />
+                  <TextField fx:id="txtEmailH" layoutX="425.0" layoutY="27.0" />
+                  <Button layoutX="476.0" layoutY="125.0" mnemonicParsing="false" onAction="#addH" style="-fx-border-style: solid; -fx-border-color: #212121; -fx-border-width: 1px; -fx-background-color: #fff; -fx-border-radius: 2px;" text="Add">
+                     <font>
+                        <Font name="SimSun-ExtB" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="574.0" layoutY="125.0" mnemonicParsing="false" onAction="#deleteH" style="-fx-border-radius: 2px; -fx-border-style: solid; -fx-border-color: #212121; -fx-background-color: #fff; -fx-border-width: 1px;" text="Delete">
+                     <font>
+                        <Font name="SimSun-ExtB" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="516.0" layoutY="125.0" mnemonicParsing="false" onAction="#updateH" style="-fx-border-radius: 2px; -fx-border-style: solid; -fx-border-color: #212121; -fx-background-color: #fff; -fx-border-width: 1px;" text="Update">
+                     <font>
+                        <Font name="SimSun-ExtB" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <Label layoutX="22.0" layoutY="16.0" stylesheets="@../css/style.css" text="Hospitals">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="22.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tableHospital" layoutX="19.0" layoutY="271.0" prefHeight="242.0" prefWidth="711.0" style="-fx-border-radius: 5px; -fx-border-color: LightSlateGray;">
+               <columns>
+                  <TableColumn fx:id="IDColmnH" prefWidth="40.0" text="ID" />
+                  <TableColumn fx:id="NameColmnH" prefWidth="154.4444580078125" text="Name" />
+                  <TableColumn fx:id="AddressColmnH" prefWidth="285.3334045410156" text="Address" />
+                  <TableColumn fx:id="EmailColmnH" minWidth="0.0" prefWidth="150.6666259765625" text="Email" />
+                  <TableColumn fx:id="PasswordColmnH" prefWidth="79.6666259765625" text="Password" />
                </columns>
             </TableView>
          </children>
@@ -189,7 +243,7 @@
                   </Pane>
                </children>
             </GridPane>
-            <Label layoutX="12.0" layoutY="12.0" text="Available Blood Packet by Group">
+            <Label layoutX="12.0" layoutY="12.0" text="Statistics">
                <font>
                   <Font name="Arial Rounded MT Bold" size="22.0" />
                </font>
@@ -201,71 +255,53 @@
             </Pane>
          </children>
       </Pane>
-      <Pane fx:id="hospitalsPane" prefHeight="514.0" prefWidth="778.0" style="-fx-background-color: #ffffff;">
+      <Pane fx:id="campsPane" prefHeight="514.0" prefWidth="778.0" style="-fx-background-color: #ffffff;">
          <children>
-            <Pane layoutX="52.0" layoutY="78.0" prefHeight="164.0" prefWidth="643.0" style="-fx-background-color: #EDE4F1; -fx-border-color: black; -fx-border-radius: 10px;">
+            <Pane layoutX="52.0" layoutY="78.0" prefHeight="164.0" prefWidth="643.0" style="-fx-background-color: #EDE4F1; -fx-border-radius: 10px; -fx-border-color: black;">
                <children>
-                  <Label layoutX="61.0" layoutY="31.0" text="Name" />
-                  <Label layoutX="59.0" layoutY="67.0" text="Address" />
-                  <Label layoutX="355.0" layoutY="63.0" text="Password" />
-                  <TextField fx:id="txtNameH" layoutX="150.0" layoutY="27.0" />
-                  <TextField fx:id="txtAddressH" layoutX="149.0" layoutY="63.0" />
-                  <TextField fx:id="txtPasswordH" layoutX="426.0" layoutY="60.0" />
-                  <Button layoutX="472.0" layoutY="119.0" mnemonicParsing="false" onAction="#addH" text="Add" />
-                  <Button layoutX="577.0" layoutY="119.0" mnemonicParsing="false" onAction="#deleteH" text="Delete" />
-                  <Button layoutX="517.0" layoutY="119.0" mnemonicParsing="false" onAction="#updateH" text="Update" />
-                  <Label layoutX="360.0" layoutY="31.0" text="Email" />
-                  <TextField fx:id="txtEmailH" layoutX="425.0" layoutY="27.0" />
+                  <Label layoutX="72.0" layoutY="23.0" text="Name" />
+                  <Label layoutX="70.0" layoutY="57.0" text="Address" />
+                  <Label layoutX="345.0" layoutY="52.0" text="Organized By" />
+                  <TextField fx:id="txtNameC" layoutX="150.0" layoutY="16.0" />
+                  <TextField fx:id="txtAddressC" layoutX="149.0" layoutY="52.0" />
+                  <TextField fx:id="txtOrganizedByC" layoutX="426.0" layoutY="48.0" />
+                  <Label layoutX="360.0" layoutY="21.0" text="Phone" />
+                  <TextField fx:id="txtPhoneC" layoutX="425.0" layoutY="11.0" />
+                  <TextField fx:id="txtStartDateC" layoutX="150.0" layoutY="85.0" />
+                  <TextField fx:id="txtEndDateC" layoutX="426.0" layoutY="83.0" />
+                  <Label layoutX="66.0" layoutY="89.0" text="Start Date" />
+                  <Label layoutX="358.0" layoutY="87.0" text="End Date" />
+                  <Button layoutX="476.0" layoutY="125.0" mnemonicParsing="false" onAction="#addC" style="-fx-border-style: solid; -fx-border-color: #212121; -fx-border-width: 1px; -fx-background-color: #fff; -fx-border-radius: 2px;" text="Add">
+                     <font>
+                        <Font name="SimSun-ExtB" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="574.0" layoutY="125.0" mnemonicParsing="false" onAction="#deleteC" style="-fx-border-radius: 2px; -fx-border-style: solid; -fx-border-color: #212121; -fx-background-color: #fff; -fx-border-width: 1px;" text="Delete">
+                     <font>
+                        <Font name="SimSun-ExtB" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="516.0" layoutY="125.0" mnemonicParsing="false" onAction="#updateC" style="-fx-border-radius: 2px; -fx-border-style: solid; -fx-border-color: #212121; -fx-background-color: #fff; -fx-border-width: 1px;" text="Update">
+                     <font>
+                        <Font name="SimSun-ExtB" size="12.0" />
+                     </font>
+                  </Button>
                </children>
             </Pane>
-            <Label layoutX="22.0" layoutY="16.0" stylesheets="@../css/style.css" text="Hospitals">
+            <Label layoutX="22.0" layoutY="16.0" stylesheets="@../css/style.css" text="Camps">
                <font>
                   <Font name="Arial Rounded MT Bold" size="22.0" />
                </font>
             </Label>
-            <TableView fx:id="tableHospital" layoutX="19.0" layoutY="271.0" prefHeight="242.0" prefWidth="711.0" style="-fx-border-radius: 5px; -fx-border-color: LightSlateGray;">
+            <TableView fx:id="tableCamp" layoutX="19.0" layoutY="271.0" prefHeight="242.0" prefWidth="711.0" style="-fx-border-radius: 5px; -fx-border-color: LightSlateGray;">
                <columns>
-                  <TableColumn fx:id="IDColmnH" prefWidth="40.0" text="ID" />
-                  <TableColumn fx:id="NameColmnH" prefWidth="154.4444580078125" text="Name" />
-                  <TableColumn fx:id="AddressColmnH" prefWidth="285.3334045410156" text="Address" />
-                  <TableColumn fx:id="EmailColmnH" minWidth="0.0" prefWidth="150.6666259765625" text="Email" />
-                  <TableColumn fx:id="PasswordColmnH" prefWidth="79.6666259765625" text="Password" />
-               </columns>
-            </TableView>
-         </children>
-      </Pane>
-      <Pane fx:id="donorsPane" prefHeight="514.0" prefWidth="778.0" style="-fx-background-color: #ffffff;">
-         <children>
-            <Pane layoutX="52.0" layoutY="78.0" prefHeight="164.0" prefWidth="643.0" style="-fx-background-color: #EDE4F1; -fx-border-color: black; -fx-border-radius: 10px;">
-               <children>
-                  <Label layoutX="80.0" layoutY="17.0" text="Full Name" />
-                  <Label layoutX="360.0" layoutY="45.0" text="Blood Type" />
-                  <TextField fx:id="txtFullNameD" layoutX="150.0" layoutY="11.0" />
-                  <TextField fx:id="txtPhoneD" layoutX="150.0" layoutY="79.0" />
-                  <TextField fx:id="txtBloodTypeD" layoutX="431.0" layoutY="42.0" />
-                  <Button layoutX="472.0" layoutY="130.0" mnemonicParsing="false" onAction="#addD" text="Add" />
-                  <Button layoutX="577.0" layoutY="130.0" mnemonicParsing="false" onAction="#deleteD" text="Delete" />
-                  <Button layoutX="517.0" layoutY="130.0" mnemonicParsing="false" onAction="#updateD" text="Update" />
-                  <Label layoutX="371.0" layoutY="13.0" text="Email" />
-                  <TextField fx:id="txtEmailD" layoutX="430.0" layoutY="9.0" />
-                  <Label layoutX="89.0" layoutY="81.0" text="Phone" />
-                  <TextField fx:id="txtAddressD" layoutX="150.0" layoutY="46.0" />
-                  <Label layoutX="87.0" layoutY="49.0" text="Address" />
-               </children>
-            </Pane>
-            <Label layoutX="22.0" layoutY="16.0" stylesheets="@../css/style.css" text="Donors">
-               <font>
-                  <Font name="Arial Rounded MT Bold" size="22.0" />
-               </font>
-            </Label>
-            <TableView fx:id="tableDonor" layoutX="19.0" layoutY="271.0" prefHeight="242.0" prefWidth="711.0" style="-fx-border-color: LightSlateGray; -fx-border-radius: 5px;">
-               <columns>
-                  <TableColumn fx:id="IDColmnD" prefWidth="40.0" text="ID" />
-                  <TableColumn fx:id="FullNameColmnD" prefWidth="91.33331298828125" text="Full Name" />
-                  <TableColumn fx:id="AddressColmnD" prefWidth="235.33343505859375" text="Address" />
-                  <TableColumn fx:id="EmailColmnD" minWidth="0.0" prefWidth="147.99993896484375" text="Email" />
-                  <TableColumn fx:id="PhoneColmnD" prefWidth="123.33331298828125" text="Phone" />
-                  <TableColumn fx:id="BloodTypeColmnD" prefWidth="70.6666259765625" text="Blood Type" />
+                  <TableColumn fx:id="IDColmnC" prefWidth="40.0" text="ID" />
+                  <TableColumn fx:id="NameColmnC" prefWidth="88.888916015625" text="Name" />
+                  <TableColumn fx:id="AddressColmnC" prefWidth="107.33331298828125" text="Address" />
+                  <TableColumn fx:id="PhoneColmnC" minWidth="0.0" prefWidth="121.33334350585938" text="Phone" />
+                  <TableColumn fx:id="OrganizedByColmnC" prefWidth="131.111083984375" text="Organized By" />
+                  <TableColumn fx:id="StartDateColmnC" minWidth="0.0" prefWidth="119.5555419921875" text="Start Date" />
+                  <TableColumn fx:id="EndDateColmnC" prefWidth="100.88885498046875" text="End Date" />
                </columns>
             </TableView>
          </children>
@@ -278,9 +314,18 @@
             <TextField fx:id="txtName" layoutX="150.0" layoutY="27.0" />
             <TextField fx:id="txtAddress" layoutX="149.0" layoutY="63.0" />
             <TextField fx:id="txtPassword" layoutX="426.0" layoutY="60.0" />
-            <Button layoutX="472.0" layoutY="119.0" mnemonicParsing="false" onAction="#addBloodBank" text="Add" />
-            <Button layoutX="577.0" layoutY="119.0" mnemonicParsing="false" onAction="#DeleteBloodBank" text="Delete" />
-            <Button layoutX="517.0" layoutY="119.0" mnemonicParsing="false" onAction="#updateBloodBank" text="Update" />
+            <Button layoutX="476.0" layoutY="125.0" mnemonicParsing="false" onAction="#addBloodBank" style="-fx-border-style: solid; -fx-border-color: #212121; -fx-border-width: 1px; -fx-background-color: #fff; -fx-border-radius: 2px;" text="Add">
+               <font>
+                  <Font name="SimSun-ExtB" size="12.0" />
+               </font></Button>
+            <Button layoutX="574.0" layoutY="125.0" mnemonicParsing="false" onAction="#DeleteBloodBank" style="-fx-border-radius: 2px; -fx-border-style: solid; -fx-border-color: #212121; -fx-background-color: #fff; -fx-border-width: 1px;" text="Delete">
+               <font>
+                  <Font name="SimSun-ExtB" size="12.0" />
+               </font></Button>
+            <Button layoutX="516.0" layoutY="125.0" mnemonicParsing="false" onAction="#updateBloodBank" style="-fx-border-radius: 2px; -fx-border-style: solid; -fx-border-color: #212121; -fx-background-color: #fff; -fx-border-width: 1px;" text="Update">
+               <font>
+                  <Font name="SimSun-ExtB" size="12.0" />
+               </font></Button>
             <Label layoutX="360.0" layoutY="31.0" text="Email" />
             <TextField fx:id="txtEmail" layoutX="425.0" layoutY="27.0" />
          </Pane>

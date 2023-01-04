@@ -58,7 +58,7 @@ public class LoginController implements Initializable {
             try {
                 pst = con.prepareStatement("SELECT password_h FROM hospital WHERE id_h = ?");
                 pst.setInt(1, userNameVariable);
-                // Admin
+
                 ResultSet resultSet = pst.executeQuery();
                 if (resultSet.next())
                     userPasswordVariable = resultSet.getString("password_h");
@@ -87,7 +87,7 @@ public class LoginController implements Initializable {
             try {
                 pst = con.prepareStatement("SELECT password_bk FROM blood_bank WHERE id_bk = ?");
                 pst.setInt(1, userNameVariable);
-                // Admin
+
                 ResultSet resultSet = pst.executeQuery();
                 if (resultSet.next())
                     userPasswordVariable = resultSet.getString("password_bk");
@@ -99,6 +99,7 @@ public class LoginController implements Initializable {
 
                     BloodBankController bloodBankController = loader.getController();
                     bloodBankController.getBloodBankUserId(userId.getText());
+
                     //root = FXMLLoader.load(MainApplication.class.getResource("view/BloodBank-view.fxml"));
                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     scene = new Scene(root);

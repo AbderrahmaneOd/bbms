@@ -113,9 +113,12 @@ public class HospitalController implements Initializable {
     // Hospital User ID
     @FXML
     private String hostpitalUserId;
+    @FXML
+    private Label hospitalID;
 
     public void getHospitalUserId(String userId) {
         hostpitalUserId = userId;
+        hospitalID.setText("ID : " + hostpitalUserId);
     }
 
     // Function for Menu
@@ -167,6 +170,7 @@ public class HospitalController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Connect();
+
     }
 
     // Function for Hospital Request functionality
@@ -494,8 +498,8 @@ public class HospitalController implements Initializable {
         try
         {
             pst = con.prepareStatement("SELECT id_donor ,full_name, address_donor, phone_donor, email_donor, bloodtype_donor FROM donor WHERE address_donor LIKE ? AND bloodtype_donor LIKE ?");
-            pst.setString(1, "%" + txtAddressD.getText() + "%");
-            pst.setString(2, "%" + txtBloodTypeD.getText() + "%");
+            pst.setString(1, txtAddressD.getText() + "%");
+            pst.setString(2, txtBloodTypeD.getText() + "%");
 
             ResultSet rs = pst.executeQuery();
 

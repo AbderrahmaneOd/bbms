@@ -222,7 +222,7 @@ public class AdminController implements Initializable{
         root = FXMLLoader.load(MainApplication.class.getResource("view/Login-view.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-        stage.setTitle("Admin Dashboard");
+        stage.setTitle("Login");
         stage.setScene(scene);
         stage.show();
     }
@@ -250,8 +250,8 @@ public class AdminController implements Initializable{
             alert.setTitle("BloodBank Insertion");
 
 
-            alert.setHeaderText("BloodBank Registation");
-            alert.setContentText("Record Added!");
+            alert.setHeaderText("BloodBank Registration");
+            alert.setContentText("Record Added");
 
             alert.showAndWait();
 
@@ -348,11 +348,11 @@ public class AdminController implements Initializable{
             pst.executeUpdate();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("BloodBank Registationn");
+            alert.setTitle("BloodBank Registration");
 
 
-            alert.setHeaderText("BloodBank Registation");
-            alert.setContentText("Deletedd!");
+            alert.setHeaderText("BloodBank Registration");
+            alert.setContentText("Deleted!");
 
             alert.showAndWait();
             table();
@@ -389,11 +389,11 @@ public class AdminController implements Initializable{
             pst.executeUpdate();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("BloodBank Registationn");
+            alert.setTitle("BloodBank Registration");
 
 
-            alert.setHeaderText("BloodBank Registation");
-            alert.setContentText("Updateddd!");
+            alert.setHeaderText("BloodBank Registration");
+            alert.setContentText("Updated!");
 
             alert.showAndWait();
             table();
