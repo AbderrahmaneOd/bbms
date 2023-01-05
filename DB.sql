@@ -53,11 +53,12 @@ CREATE TABLE `bbms`.`camp` (
   `end_date` VARCHAR(15),
   PRIMARY KEY (`id_camp`));
 
-INSERT INTO `camp`(name_camp, address_camp, phone_camp, organized_by, start_date, end_date) VALUES ('LifeBlood', 'bd Moulay Youssef Quartier bourgogne- Casablanca', '0576-2354', 'Centre de transfusion de Casa', DATE_FORMAT(current_date() - 200, '%Y-%m-%d'), DATE_FORMAT(current_date() - 100, '%Y-%m-%d') );
-INSERT INTO `camp`(name_camp, address_camp, phone_camp, organized_by, start_date, end_date) VALUES ('Red Cross', 'rue des Hôpitaux Quartier des hopitaux- Tanger', '0680-0937', 'Centre Santé Saâda Hay Mohammedi', DATE_FORMAT(current_date() -300, '%Y-%m-%d'), DATE_FORMAT(current_date() - 200, '%Y-%m-%d') );
-INSERT INTO `camp`(name_camp, address_camp, phone_camp, organized_by, start_date, end_date) VALUES ('Blood Services', 'rue Lahcen El Arjoune Quartier des hopitaux- Agadir', '0612-1278', 'Centre Hospitalier Universitaire Ibn Rochd', DATE_FORMAT(current_date() -95, '%Y-%m-%d'), DATE_FORMAT(current_date(), '%Y-%m-%d') );
-INSERT INTO `camp`(name_camp, address_camp, phone_camp, organized_by, start_date, end_date) VALUES ('Red Cross Blood Transfusion Service', 'rue Lahcen El Arjoune Quartier des hopitaux- Agadir', '0670-9075', 'Centre De Santé El Fida', DATE_FORMAT(current_date() - 1000, '%Y-%m-%d'), DATE_FORMAT(current_date() - 900, '%Y-%m-%d') );
-INSERT INTO `camp`(name_camp, address_camp, phone_camp, organized_by, start_date, end_date) VALUES ('Friends2support', 'bd Mohamed Taieb Naciri Oulfa - Casablanca', '0670-9070', 'Cheikh Khalifa Ben Zayed Al Nahyan', DATE_FORMAT(current_date() - 700, '%Y-%m-%d'), DATE_FORMAT(current_date() - 600, '%Y-%m-%d') );
+
+INSERT INTO `camp`(name_camp, address_camp, phone_camp, organized_by, start_date, end_date) VALUES ('LifeBlood', 'bd Moulay Youssef Quartier bourgogne- Casablanca', '0576-2354', 'Centre de transfusion de Casa', '2022-12-25', '2023-01-04' );
+INSERT INTO `camp`(name_camp, address_camp, phone_camp, organized_by, start_date, end_date) VALUES ('Red Cross', 'rue des Hôpitaux Quartier des hopitaux- Tanger', '0680-0937', 'Centre Santé Saâda Hay Mohammedi', '2021-12-04', '2022-01-19' );
+INSERT INTO `camp`(name_camp, address_camp, phone_camp, organized_by, start_date, end_date) VALUES ('Blood Services', 'rue Lahcen El Arjoune Quartier des hopitaux- Agadir', '0612-1278', 'Centre Hospitalier Universitaire Ibn Rochd', '2022-01-04', '2023-01-04' );
+INSERT INTO `camp`(name_camp, address_camp, phone_camp, organized_by, start_date, end_date) VALUES ('Red Cross Blood Transfusion Service', 'rue Lahcen El Arjoune Quartier des hopitaux- Agadir', '0670-9075', 'Centre De Santé El Fida', '2018-07-04', '2018-08-30' );
+INSERT INTO `camp`(name_camp, address_camp, phone_camp, organized_by, start_date, end_date) VALUES ('Friends2support', 'bd Mohamed Taieb Naciri Oulfa - Casablanca', '0670-9070', 'Cheikh Khalifa Ben Zayed Al Nahyan', '2022-04-04', '2022-10-17' );
 
 CREATE TABLE `bbms`.`donor` (
   `id_donor` INT AUTO_INCREMENT,
@@ -133,24 +134,25 @@ CREATE TABLE `bbms`.`blood_request` (
   FOREIGN KEY (`id_hospital`) REFERENCES `hospital` (`id_h`),
   CHECK (`bloodtype_request` IN ('A+', 'B+', 'AB+', 'O+','A-', 'B-', 'AB-', 'O-')),
   CHECK (`status` IN ('pending', 'delivered', 'cancelled')),
-  CHECK (`priority` IN ('low', 'medium', 'high'))		);
+  CHECK (`priority` IN ('low', 'medium', 'high'))		
+  );
 
 
-INSERT INTO blood_request (bloodtype_request, quantity_request, priority, status, id_hospital, date_request) VALUES ("AB+", 6, "high" , "pending", 1, DATE_FORMAT(current_date() - 1000, '%Y-%m-%d') );
-INSERT INTO blood_request (bloodtype_request, quantity_request, priority, status, id_hospital, date_request) VALUES ("AB+", 1, "low", "delivered", 9, DATE_FORMAT(current_date() - 500, '%Y-%m-%d') );
-INSERT INTO blood_request (bloodtype_request, quantity_request, priority, status, id_hospital, date_request) VALUES ("AB-", 3, "medium", "delivered", 5, DATE_FORMAT(current_date() - 300, '%Y-%m-%d') );
-INSERT INTO blood_request (bloodtype_request, quantity_request, priority, status, id_hospital, date_request) VALUES ("AB-", 4, "low", "cancelled", 1, DATE_FORMAT(current_date(), '%Y-%m-%d') );
+INSERT INTO blood_request (bloodtype_request, quantity_request, priority, status, id_hospital, date_request) VALUES ("AB+", 6, "high" , "pending", 1, '2020-12-01');
+INSERT INTO blood_request (bloodtype_request, quantity_request, priority, status, id_hospital, date_request) VALUES ("AB+", 1, "low", "delivered", 9, '2020-03-12' );
+INSERT INTO blood_request (bloodtype_request, quantity_request, priority, status, id_hospital, date_request) VALUES ("AB-", 3, "medium", "delivered", 5, '2020-08-04');
+INSERT INTO blood_request (bloodtype_request, quantity_request, priority, status, id_hospital, date_request) VALUES ("AB-", 4, "low", "cancelled", 1, '2019-01-27' );
 
-INSERT INTO blood_request (bloodtype_request, quantity_request, priority, status, id_hospital, date_request) VALUES ("A+", 9, "low", "pending", 1, DATE_FORMAT(current_date() - 700, '%Y-%m-%d') );
-INSERT INTO blood_request (bloodtype_request, quantity_request, priority, status, id_hospital, date_request) VALUES ("A+", 2, "high", "delivered", 2, DATE_FORMAT(current_date() - 1098, '%Y-%m-%d') );
-INSERT INTO blood_request (bloodtype_request, quantity_request, priority, status, id_hospital, date_request) VALUES ("A+", 3, "medium", "cancelled", 8, DATE_FORMAT(current_date() - 700, '%Y-%m-%d') );
+INSERT INTO blood_request (bloodtype_request, quantity_request, priority, status, id_hospital, date_request) VALUES ("A+", 9, "low", "pending", 1, '2020-03-12' );
+INSERT INTO blood_request (bloodtype_request, quantity_request, priority, status, id_hospital, date_request) VALUES ("A+", 2, "high", "delivered", 2, '2020-03-12' );
+INSERT INTO blood_request (bloodtype_request, quantity_request, priority, status, id_hospital, date_request) VALUES ("A+", 3, "medium", "cancelled", 8, '2020-03-12' );
 
-INSERT INTO blood_request (bloodtype_request, quantity_request, priority, status, id_hospital, date_request) VALUES ("O+", 2, "high", "delivered", 2, DATE_FORMAT(current_date() - 110, '%Y-%m-%d') );
-INSERT INTO blood_request (bloodtype_request, quantity_request, priority, status, id_hospital, date_request) VALUES ("O+", 8, "low", "pending", 4, DATE_FORMAT(current_date() - 600, '%Y-%m-%d') );
-INSERT INTO blood_request (bloodtype_request, quantity_request, priority, status, id_hospital, date_request) VALUES ("O-", 4, "medium", "cancelled", 3, DATE_FORMAT(current_date() , '%Y-%m-%d') );
-INSERT INTO blood_request (bloodtype_request, quantity_request, priority, status, id_hospital, date_request) VALUES ("O-", 4, "medium", "delivered", 1, DATE_FORMAT(current_date() - 1000, '%Y-%m-%d') );
+INSERT INTO blood_request (bloodtype_request, quantity_request, priority, status, id_hospital, date_request) VALUES ("O+", 2, "high", "delivered", 2, '2020-03-12' );
+INSERT INTO blood_request (bloodtype_request, quantity_request, priority, status, id_hospital, date_request) VALUES ("O+", 8, "low", "pending", 4, '2020-03-12' );
+INSERT INTO blood_request (bloodtype_request, quantity_request, priority, status, id_hospital, date_request) VALUES ("O-", 4, "medium", "cancelled", 3, '2020-03-12');
+INSERT INTO blood_request (bloodtype_request, quantity_request, priority, status, id_hospital, date_request) VALUES ("O-", 4, "medium", "delivered", 1, '2020-03-12' );
 
-INSERT INTO blood_request (bloodtype_request, quantity_request, priority, status, id_hospital, date_request) VALUES ("B+", 7, "high", "delivered", 7, DATE_FORMAT(current_date() - 309, '%Y-%m-%d') );
-INSERT INTO blood_request (bloodtype_request, quantity_request, priority, status, id_hospital, date_request) VALUES ("B+", 6, "low", "cancelled", 8, DATE_FORMAT(current_date() - 50000, '%Y-%m-%d') );
-INSERT INTO blood_request (bloodtype_request, quantity_request, priority, status, id_hospital, date_request) VALUES ("B-", 3, "medium", "pending", 10, DATE_FORMAT(current_date() - 500, '%Y-%m-%d') );
-INSERT INTO blood_request (bloodtype_request, quantity_request, priority, status, id_hospital, date_request) VALUES ("B+", 4, "high", "delivered", 7, DATE_FORMAT(current_date() - 400, '%Y-%m-%d') );
+INSERT INTO blood_request (bloodtype_request, quantity_request, priority, status, id_hospital, date_request) VALUES ("B+", 7, "high", "delivered", 7, '2020-01-07' );
+INSERT INTO blood_request (bloodtype_request, quantity_request, priority, status, id_hospital, date_request) VALUES ("B+", 6, "low", "cancelled", 8, '2020-07-24' );
+INSERT INTO blood_request (bloodtype_request, quantity_request, priority, status, id_hospital, date_request) VALUES ("B-", 3, "medium", "pending", 10, '2020-05-28' );
+INSERT INTO blood_request (bloodtype_request, quantity_request, priority, status, id_hospital, date_request) VALUES ("B+", 4, "high", "delivered", 7, '2020-09-22' );
